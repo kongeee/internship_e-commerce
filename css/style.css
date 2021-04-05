@@ -1,0 +1,91 @@
+#container{
+    border-style: solid;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    
+    
+}
+
+                                                                /*BANNER*/
+#banner{
+    border-style: solid;
+    width: 100%;
+    border-color: red;
+    
+   
+}
+
+#logo{
+   margin-left: 20px;
+   border-style: solid;
+   width: 75px;
+   height: 75px;
+   
+    
+}
+
+#logoimage{
+    width: 75px;
+    height: 75px;
+}
+
+/*social media*/
+.socialMedia{
+    border-style: solid;
+    width: 60px;
+    height: 60px;
+    float: right;
+    position: relative;
+    margin: 5px;
+    background-color: gainsboro;
+    bottom: 80px;
+    text-align: center;
+    border-radius: 20px;
+
+
+}
+
+.socialMedia:hover{
+    border-style: solid;
+    border-color: greenyellow;
+}
+
+.mediaicon{
+    
+    width: 50px;
+    height: 50px;
+    padding-top: 5px;
+    
+}
+
+/*search*/
+#search{
+    border-style: solid;
+    text-align: center;
+    
+    
+    
+}
+#searchInput{
+    border: solid green;
+    height: 50px;
+    width: 250px;
+    
+}
+
+#searchButton{
+    width: 45px;
+    height: 50px;
+    border: none;
+    display: inline-block;
+    margin-top: 5px;
+    text-align: center;
+    
+}
+
+#searchimage{
+    height: 30px;
+    width: 30px;
+   
+}
