@@ -2,14 +2,16 @@
 <html lang="en">
     <head>
         <title>Ekici Computer</title>
-        <meta http-equiv="Content-Type" content = "text/html; charset=utf-8">
+        <meta http-equiv="Content-Type" content = "text/html">
         <meta http-equiv="Content-Language" content = "en"> 
         <meta charset="utf-8">
 
         <meta name="description" content="A computer vendor that offers quality and cheap products">
         <meta name="keywords" content="Computer, PC, Laptop, CPU, RAM, HDD, SSD, motherboards, keyboard, mouse, graphic cards, power supply, computer cases, fans">
         <meta name="author" content="Furkan Ekici">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--responsive-->
+
+        <!--responsive-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
         <!--CSS and JS connections-->
         <link rel="stylesheet" href="css/style.css" type="text/css">
@@ -24,9 +26,34 @@
             <!--header contains logo and social media icons-->
             <header id="banner">
                 <!--Logo div is here-->
-                <div id="logo"></div>
+                <div id="logo">
+                    <a href="index.html"><img id="logoimage" src="images/logos/ekici-logo.png" alt="Logo"></a>
+                </div>
+                
+                <!--social media icons-->
+                <div class="socialMedia">
+                    <a href="https://www.facebook.com" target="_blank"><img class="mediaicon" src="images/icons/facebook.png" alt=""></a>
+                </div>
+                <div class="socialMedia">
+                    <a href="https://www.twitter.com" target="_blank"><img class="mediaicon" src="images/icons/twitter.png" alt=""></a>
+                </div>
+                <div class="socialMedia">
+                    <a href="https://www.instagram.com" target="_blank"><img class="mediaicon" src="images/icons/instagram.png" alt=""></a>
+                </div>
 
+                <div id="search">
+                    <form  id="searchForm" action="search.php" method="GET">
+                        <input id="searchInput" type="text" name="searchResult" placeholder="Search something ...">
+                        
+                        <div id="searchButton"><button onclick="searchSomething()"><img id="searchimage" src="images/icons/search.png" alt=""></button></div>
+                       
+                    </form>
+                    
+                </div>
             </header>
+            <br>
+            <p>Furkan</p>
+
         </div>
         
     </body>
