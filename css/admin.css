@@ -1,0 +1,52 @@
+body{
+    background-color: black;
+    background-size: cover;
+}
+
+#login{
+    height: auto;
+    width: 300px;
+
+    border-style: solid;
+    border-color: green;
+
+    margin-left: 40%;
+    margin-top: 20%;
+
+    
+}
+
+#admin_table{
+    color: aliceblue;
+    position: relative;
+    padding-left:25px;
+    
+}
+
+#top_text{
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    
+    padding-bottom: 20px;
+}
+
+.admin_input{
+    height: 20px;
+}
+
+.admin_button{
+    border-radius: 10px;
+    background-color: greenyellow;
+
+    width: 50%;
+
+}
+
+.admin_button:hover{
+    background-color: greenyellow;
+    
+    border-color: aqua;
+    border-style: solid;
+    
+}
