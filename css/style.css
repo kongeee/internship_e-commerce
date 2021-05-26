@@ -1,26 +1,34 @@
+*{                     
+    margin: 0px;
+    padding: 0px;
+}
+
 #container{
     border-style: solid;
-    display: flex;
+    border-width: 1px;
     margin: auto;
-    flex-direction: column;
+    width: 99%;
+    
     
     
 }
 
                                                                 /*BANNER*/
 #banner{
-    /*border-style: solid;*/
+    
     width: 100%;
-    /*border-color: red;*/
+    height:auto;
+    background-color: burlywood;
     
    
 }
 
+
 #logo{
    margin-left: 20px;
-   border-style: solid;
    width: 75px;
    height: 75px;
+   
    
     
 }
@@ -29,6 +37,8 @@
     width: 75px;
     height: 75px;
 }
+
+
 
 /*social media*/
 .socialMedia{
@@ -59,33 +69,116 @@
     
 }
 
+#menu-bar{
+   
+    background-color:#ac8654; 
+     
+ }
+
 /*search*/
-#search{
-    border-style: solid;
-    text-align: center;
-    
-    
-    
+
+#searchForm{
+    display: inline;
+   
+   
 }
+
 #searchInput{
+    
+   
     border: solid green;
-    height: 50px;
+    height: 60px;
     width: 250px;
+    font-size: 20px;
     
 }
 
 #searchButton{
-    width: 45px;
-    height: 50px;
-    border: none;
-    display: inline-block;
-    margin-top: 5px;
-    text-align: center;
-    
+   
+    display: inline;
+   
 }
 
 #searchimage{
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
+    
    
+}
+
+
+/*Menu bar*/
+ul#menu-list{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    display: inline;
+}
+
+.menu-element{
+    float: left;
+    text-align: center;
+    margin-top: 3px;
+    padding: 5px;
+    
+    
+}
+
+.menu-link{
+    display: block;
+    padding: 16px 16px;
+    background-color: #27ae60;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    
+    
+}
+
+.menu-link:hover{
+    background-color: #23834c;
+}
+
+#content{
+    border-style: solid;
+    margin-top: 10px;
+    float: left;
+    width: 75%;
+    height: auto;
+    
+}
+
+.product{
+    height: 300px;
+    width: 300px;
+    float: left;
+    border-style: solid;
+    margin-left: 55px;
+    margin-top: 30px;
+}
+
+#content2{
+    margin-right: 5px;
+    border-style: solid;
+    background-color: rebeccapurple;
+    height: 100px;
+    width: 20%;
+    float: right;
+}
+
+.product_img{
+    border-style: solid;
+    height: 100px;
+    width: 100px;
+    margin-left: 95px;
+}
+
+.product_info{
+    
+    margin-left: 11px;
+}
+
+ul#product-list{
+    list-style-type: none;
 }
