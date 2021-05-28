@@ -28,7 +28,7 @@
    margin-left: 20px;
    width: 75px;
    height: 75px;
-   
+   display: block;
    
     
 }
@@ -36,6 +36,11 @@
 #logoimage{
     width: 75px;
     height: 75px;
+}
+
+#slogan{
+    text-align: center;
+    
 }
 
 
@@ -181,4 +186,28 @@ ul#menu-list{
 
 ul#product-list{
     list-style-type: none;
+}
+
+
+
+/*FOOTER*/
+
+#footer{
+    border-style: solid;
+    height: 40px;
+    width: 100%;
+    float: left;
+    text-align: center;
+    display: inline;
+}
+
+#footer a{
+    text-decoration: none;
+    color: #23834c;
+    font-size: 16px;
+    margin: 5px;
+}
+
+#footer a:hover{
+    color: #27ae60;
 }

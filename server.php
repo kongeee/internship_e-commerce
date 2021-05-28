@@ -41,4 +41,22 @@ if($DBconn->query($sql) === TRUE){
     echo "(admin)table is not created";
 }
 
+$sql = "CREATE TABLE IF NOT EXISTS computer(
+    computer_id INTEGER AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    cpu VARCHAR(50),
+    gpu VARCHAR(50),
+    ram VARCHAR(50),
+    storage VARCHAR(50),
+    price FLOAT,
+    rate FLOAT,
+    PRIMARY KEY(admin_id)
+)";
+
+if($DBconn->query($sql) === TRUE){
+
+}else{
+echo "(computer)table is not created";
+}
+
 ?>

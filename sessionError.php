@@ -3,15 +3,15 @@
     <head>
         <title>Ekici Computer Session Error Page</title>
         <meta http-equiv="Content-Type" content = "text/html">
-        <meta http-equiv="Content-Language" content = "tr"> 
+        <meta http-equiv="Content-Language" content = "en"> 
         <meta charset="utf-8">
 
         
     </head>
 
-    <body>
-        <h2>Error!!</h2>
-        <p>Please click <a href="index.html">this</a> button to return back to Home Page</p>
+    <body style="text-align: center;">
+        <h2>OOOPS!!!</h2>
+        <p>Please click <a href="index.php">this</a> button to login</p>
         
         
     </body>

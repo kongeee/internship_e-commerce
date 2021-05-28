@@ -5,7 +5,7 @@ ob_start();
 
 
 if(!isset($_SESSION["login"])){//Session control
-    header("Location:sessionError.php");
+    header('Location:../sessionError.php');
 }
 
 ?>

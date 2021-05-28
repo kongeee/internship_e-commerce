@@ -50,3 +50,38 @@ body{
     border-style: solid;
     
 }
+
+/*Admin Home Page*/
+
+.process_header{
+
+    color: white;
+    font-size: 32px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#adminProcessTable{
+    margin-left: 40%;
+    
+}
+
+table#adminProcessTable tr td a{
+    border-style: solid;
+    display: block;
+    height: 50px;
+    width: 170px;
+    border-width: 1px;
+    border-radius: 10px;
+    padding-top: 5px;
+    text-align: center;
+    font-size: 20px;
+    text-decoration: none;
+    color: azure;
+    background-color: #40af40;
+}
+
+
+
+table#adminProcessTable tr td a:hover{
+    background-color: #096909;
+}
