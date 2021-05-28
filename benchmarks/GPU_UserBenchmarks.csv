@@ -1,4 +1,4 @@
-Type,Part Number,Brand,Model,Rank,Benchmark,Samples,URL
+Type,Part Number,GPU,Model,Rank,Benchmark,Samples,URL
 GPU,,Nvidia,RTX 3090,1,229,44966,https://gpu.userbenchmark.com/Nvidia-RTX-3090/Rating/4081
 GPU,,Nvidia,Quadro RTX A6000,2,207,1,https://gpu.userbenchmark.com/SpeedTest/1300600/NVIDIA-Quadro-RTX-A6000
 GPU,,Nvidia,RTX 3080,3,204,118803,https://gpu.userbenchmark.com/Nvidia-RTX-3080/Rating/4080

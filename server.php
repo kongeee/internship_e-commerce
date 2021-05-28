@@ -22,9 +22,7 @@ $sql = "CREATE TABLE IF NOT EXISTS user(
 
 )";
 
-if($DBconn->query($sql) === TRUE){
-    
-}else{
+if(!$DBconn->query($sql) === TRUE){
     echo "(user)table is not created";
 }
 
@@ -35,28 +33,28 @@ $sql = "CREATE TABLE IF NOT EXISTS admin(
         PRIMARY KEY(admin_id)
 )";
 
-if($DBconn->query($sql) === TRUE){
-    
-}else{
-    echo "(admin)table is not created";
+if(!$DBconn->query($sql) === TRUE){
+    echo "(computer)table is not created";
 }
 
 $sql = "CREATE TABLE IF NOT EXISTS computer(
     computer_id INTEGER AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     cpu VARCHAR(50),
+    cpu_bench FLOAT,
     gpu VARCHAR(50),
+    gpu_bench FLOAT,
     ram VARCHAR(50),
     storage VARCHAR(50),
     price FLOAT,
     rate FLOAT,
-    PRIMARY KEY(admin_id)
+    type VARCHAR(10),
+    description TEXT,
+    PRIMARY KEY(computer_id)
 )";
 
-if($DBconn->query($sql) === TRUE){
-
-}else{
-echo "(computer)table is not created";
+if(!$DBconn->query($sql) === TRUE){
+    echo "(computer)table is not created";
 }
 
 ?>

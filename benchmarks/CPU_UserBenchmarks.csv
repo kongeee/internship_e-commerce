@@ -1,4 +1,4 @@
-Type,Part Number,Brand,Model,Rank,Benchmark,Samples,URL
+Type,Part Number,Processor,Model,Rank,Benchmark,Samples,URL
 CPU,BX8070811900K,Intel,Core i9-11900K,1,111,76,https://cpu.userbenchmark.com/Intel-Core-i9-11900K/Rating/4110
 CPU,BX8070811700KF,Intel,Core i7-11700KF,2,109,18,https://cpu.userbenchmark.com/SpeedTest/1514594/11th-Gen-IntelR-CoreTM-i7-11700KF---360GHz
 CPU,BX8070811700K,Intel,Core i7-11700K,3,108,195,https://cpu.userbenchmark.com/Intel-Core-i7-11700K/Rating/4107

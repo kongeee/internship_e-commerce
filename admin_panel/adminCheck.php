@@ -11,7 +11,7 @@ $sql = "SELECT A.name, A.password
         WHERE A.name='$adminName' AND A.password=MD5('$adminPassword')
         ";
 
-$result = mysqli_query($DBconn, $sql);
+$result = $DBconn->query($sql);
 $row = mysqli_fetch_assoc($result);
 
 if($adminName == $row["name"] && md5($adminPassword) == $row["password"]){

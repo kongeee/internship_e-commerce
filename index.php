@@ -1,3 +1,4 @@
+<?php include_once "server.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -55,6 +56,8 @@
                     <li class="menu-element"><a class="menu-link" href="#">About Us</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Best Products</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Compare Computers</a></li>
+                    <li class="menu-element"><a class="menu-link" href="#">Gaming</a></li>
+                    <li class="menu-element"><a class="menu-link" href="#">Normal</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">USER</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">CART(X)</a></li>
                     
@@ -73,12 +76,27 @@
             </nav>
             
             <article id="content">
+                
+                <?php 
+                    $sql = "SELECT * FROM computer";
+                    $result = $DBconn->query($sql);
+                    while($row = mysqli_fetch_assoc($result)){
+
+                ?>
+                
                 <div class="product">
                     <div class="product_img"></div>
                     <div class="product_info">
                         <ul id="product-list">
-                            <li>name</li>
-                            <li>price</li>
+                            <li><?php echo $row['name'] ?></li>
+                            <li><?php echo $row['cpu'] ?></li>
+                            <li><?php echo $row['gpu'] ?></li>
+                            <li><?php echo $row['ram'] ?></li>
+                            <li><?php echo $row['storage'] ?></li>
+                            <li><?php echo $row['price'] ?></li>
+                            
+                            
+
                             <li id="discount"><?php echo "10"?>%</li>
                             <li>price after discount</li>
 
@@ -86,7 +104,7 @@
                         </ul>
                     </div>
                 </div>
-                
+                <?php } ?>
                 
                 
 
