@@ -19,7 +19,4 @@ if (($handle = fopen("../benchmarks/GPU_UserBenchmarks.csv", "r")) !== FALSE) {
     fclose($handle);
  }
 
-
-
- 
 ?>

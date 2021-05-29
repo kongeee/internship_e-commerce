@@ -26,10 +26,5 @@ if($adminName == $row["name"] && md5($adminPassword) == $row["password"]){
     header('Location:../sessionError.php'); 
 }
 
-
-
-
-
-
 ?>
 

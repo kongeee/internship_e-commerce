@@ -1,4 +1,8 @@
-<?php include_once "server.php"; ?>
+<?php
+include_once "server.php"; 
+ob_start();
+$cart = 0;    
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -59,9 +63,21 @@
                     <li class="menu-element"><a class="menu-link" href="#">Gaming</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Normal</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">USER</a></li>
-                    <li class="menu-element"><a class="menu-link" href="#">CART(X)</a></li>
-                    <li class="menu-element"><a class="menu-link" href="#">CART(X)</a></li>
-                    <li class="menu-element"><a class="menu-link" href="#">CART(X)</a></li>
+                    <li class="menu-element"><a class="menu-link" href="./sale/show_cart.php?cart=true">CART(<?php 
+                    
+                    //?Number of computers in the cart
+                    if(isset($_COOKIE['computer'])){
+                        echo count($_COOKIE['computer']);
+                    }else{
+                        echo "0";
+                    }
+                    ?>)</a></li>
+                    
+                    <li class="menu-element"><select name="order" id="">
+                    <option value="price">Lowest Price</option>
+                    <option value="type">Gaming First</option>
+                    <option value="discount">Highest Discount</option>
+                    </select></li>
                     
                     
                    
@@ -74,16 +90,15 @@
                     <div id="searchButton"><button onclick="searchSomething()"><img id="searchimage" src="images/icons/search.png" alt=""></button></div>
                    
                 </form>
-                <div style="display: inline; float:right;"><?php echo date('l \t\h\e jS');?></div>
                 
-                
+                             
                 
             </nav>
             
             <article id="content">
                 
                 <?php 
-                    $sql = "SELECT * FROM computer";
+                    $sql = "SELECT * FROM computer ORDER BY name";
                     $result = $DBconn->query($sql);
                     while($row = mysqli_fetch_assoc($result)){
 
@@ -101,6 +116,7 @@
                             <li><?php echo $row['price'] ?></li>
                             <li class="discount"><?php echo $row['discount'] ?>%</li>
                             <li>price after discount</li>
+                            <a href="?add=<?php echo $row['computer_id']; ?>">Add to Cart</a>
 
 
                         </ul>
@@ -108,6 +124,20 @@
                 </div>
                 <?php } ?>
                 
+                <?php
+                //TODO : Cart operations
+                
+                //?ADD
+                if(isset($_GET['add'])){
+                    $id = $_GET['add'];
+                    setcookie('computer['.$id.']', $id, time()+86400);
+                    header('Location:'.$_SERVER['HTTP_REFERER']);//go to last page
+                }
+                
+                
+
+                
+                ?>
                 
 
             </article>
