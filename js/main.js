@@ -3,10 +3,10 @@ function searchSomething(){
 }
 
 
-if(document.getElementById("discount").innerHTML != "0%"){
+if(document.getElementsByClassName("discount").innerHTML != "0%"){
     
-    document.getElementById("discount").style.color = "red";
-    document.getElementById("discount").style.textDecoration = "line-through";
+    document.getElementsByClassName("discount").style.color = "red";
+    document.getElementsByClassName("discount").style.textDecoration = "line-through";
 
 }
     

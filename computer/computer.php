@@ -10,6 +10,7 @@ class Computer{
     private $ram;
     private $storage;
     private $price;
+    private $discount;
     private $rate;
     private $description;
     private $type;
@@ -46,9 +47,12 @@ class Computer{
     function getPrice(){
         return $this->price;
     }
+    function getDiscount(){
+        return $this->discount;
+    }
 
-    function getPriceAfterDiscount($discount){
-        return $this->price - (($this->price / $discount) * 100);//calculate price after discount
+    function getPriceAfterDiscount(){
+        return $this->price - (($this->price / $this->discount) * 100);//calculate price after discount
     }
 
     function getRate(){
@@ -89,6 +93,9 @@ class Computer{
     }
     function setPrice($price){
         $this->price = $price;
+    }
+    function setDiscount($discount){
+        $this->discount = $discount;
     }
     function setRate($rate){
         $this->rate = $rate;

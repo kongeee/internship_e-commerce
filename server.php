@@ -47,6 +47,7 @@ $sql = "CREATE TABLE IF NOT EXISTS computer(
     ram VARCHAR(50),
     storage VARCHAR(50),
     price FLOAT,
+    discount FLOAT,
     rate FLOAT,
     type VARCHAR(10),
     description TEXT,

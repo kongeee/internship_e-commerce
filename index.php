@@ -29,7 +29,7 @@
                 
                 <!--Logo div is here-->
                 <div id="logo">
-                    <a href="index.html"><img id="logoimage" src="images/logos/ekici-logo.png" alt="Logo"></a>
+                    <a href="index.php"><img id="logoimage" src="images/logos/ekici-logo.png" alt="Logo"></a>
                 </div>
 
                 <div id="slogan">SLOGAN</div>
@@ -52,13 +52,15 @@
             
             <nav id="menu-bar">
                 <ul id="menu-list">
-                    <li class="menu-element"><a class="menu-link" href="#">Home</a></li>
+                    <li class="menu-element"><a class="menu-link" href="index.php">Home</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">About Us</a></li>
-                    <li class="menu-element"><a class="menu-link" href="#">Best Products</a></li>
+                    <li class="menu-element"><a class="menu-link" href="#">Best Computers</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Compare Computers</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Gaming</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Normal</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">USER</a></li>
+                    <li class="menu-element"><a class="menu-link" href="#">CART(X)</a></li>
+                    <li class="menu-element"><a class="menu-link" href="#">CART(X)</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">CART(X)</a></li>
                     
                     
@@ -72,6 +74,9 @@
                     <div id="searchButton"><button onclick="searchSomething()"><img id="searchimage" src="images/icons/search.png" alt=""></button></div>
                    
                 </form>
+                <div style="display: inline; float:right;"><?php echo date('l \t\h\e jS');?></div>
+                
+                
                 
             </nav>
             
@@ -84,20 +89,17 @@
 
                 ?>
                 
-                <div class="product">
-                    <div class="product_img"></div>
-                    <div class="product_info">
-                        <ul id="product-list">
+                <div class="computer">
+                    <div class="computer_img"></div>
+                    <div class="computer_info">
+                        <ul id="computer-list">
                             <li><?php echo $row['name'] ?></li>
                             <li><?php echo $row['cpu'] ?></li>
                             <li><?php echo $row['gpu'] ?></li>
                             <li><?php echo $row['ram'] ?></li>
                             <li><?php echo $row['storage'] ?></li>
                             <li><?php echo $row['price'] ?></li>
-                            
-                            
-
-                            <li id="discount"><?php echo "10"?>%</li>
+                            <li class="discount"><?php echo $row['discount'] ?>%</li>
                             <li>price after discount</li>
 
 

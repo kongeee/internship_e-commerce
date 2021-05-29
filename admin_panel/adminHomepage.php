@@ -22,7 +22,7 @@ include_once("sessionAdmin.php");
     <table id="adminProcessTable">
         <tr><th class="process_header">Processes</th></tr>
         
-        <tr><td><a href="../computer/computer_add.php">Create New Computer</a></td></tr>
+        <tr><td><a href="../computer/computer_menu.php">Create New Computer</a></td></tr>
         <tr><td><a href="#">Create New Discount</a></td></tr>
         <tr><td><a href="#">Create New Admin</a></td></tr>
         <tr><td><a href="#">Edit Computer</a></td></tr>
