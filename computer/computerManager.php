@@ -1,6 +1,6 @@
 <?php
 include_once("../server.php");
-include_once("../admin_panel/sessionAdmin.php");
+
 
 
 class ComputerManager implements ComputerService{
@@ -51,7 +51,7 @@ class ComputerManager implements ComputerService{
     }
 
 
-    public function connecionWithDBorForm($computer, $row){
+    public function connectionWithDBorForm($computer, $row){
         if(!strstr($row['cpu'], '|')){
             $row['cpu'] = $row['cpu']."|".$row['cpu_bench'];
             $row['gpu'] = $row['gpu']."|".$row['gpu_bench'];

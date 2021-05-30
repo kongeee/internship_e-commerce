@@ -1,4 +1,6 @@
 
+<?php include_once("../admin_panel/sessionAdmin.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

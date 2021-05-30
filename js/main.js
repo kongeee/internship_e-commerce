@@ -5,8 +5,8 @@ function searchSomething(){
 
 if(document.getElementsByClassName("discount").innerHTML != "0%"){
     
-    document.getElementsByClassName("discount").style.color = "red";
-    document.getElementsByClassName("discount").style.textDecoration = "line-through";
+    document.getElementsByClassName("price").style.color = "red";
+    document.getElementsByClassName("price").style.textDecoration = "line-through";
 
 }
     

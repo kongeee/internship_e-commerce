@@ -18,7 +18,7 @@ $computer = new Computer();
 $computerService = new ComputerManager();
 
 
-$computerService->connecionWithDBorForm($computer, $row);
+$computerService->connectionWithDBorForm($computer, $row);
 
 
 

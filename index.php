@@ -1,6 +1,16 @@
 <?php
-include_once "server.php"; 
+error_reporting(E_ALL ^ E_WARNING); 
+
+include_once("./server.php"); 
+include_once("./computer/computer.php");
+include_once("./computer/computerService.php");
+include_once("./computer/computerManager.php");
+
+
+
+
 ob_start();
+session_start();
 $cart = 0;    
 ?>
 <!DOCTYPE html>
@@ -73,12 +83,14 @@ $cart = 0;
                     }
                     ?>)</a></li>
                     
-                    <li class="menu-element"><select name="order" id="">
-                    <option value="price">Lowest Price</option>
-                    <option value="type">Gaming First</option>
-                    <option value="discount">Highest Discount</option>
-                    </select></li>
-                    
+                    <form action="" method="GET">
+                        <li class="menu-element"><select name="order" id="">
+                        <option value="price">Lowest Price</option>
+                        <option value="gaming">Gaming First</option>
+                        <option value="discount">Highest Discount</option>
+                        </select></li>
+                        <input type="submit" value="Order" style="position: relative; right:90px; top:30px; float:left">
+                    </form>
                     
                    
                     
@@ -97,11 +109,35 @@ $cart = 0;
             
             <article id="content">
                 
-                <?php 
-                    $sql = "SELECT * FROM computer ORDER BY name";
-                    $result = $DBconn->query($sql);
-                    while($row = mysqli_fetch_assoc($result)){
+                <?php
+                    //TODO: sort the computers
+                    if(isset($_GET['order'])){
+                        if($_GET['order'] == 'gaming'){
+                            $order = "type";
+                            $ascORdesc = "ASC";
+                        }
+                        else if($_GET['order'] == 'discount'){
+                            $order = "discount";
+                            $ascORdesc = "DESC";
+                        }
+                        else if($_GET['order'] == 'price'){
+                            $order = "price";
+                            $ascORdesc = "ASC";
+                        }
+                        
+                    }
 
+                    if(!isset($order)){
+                        $order = "name";
+                        $ascORdesc = "ASC";
+
+                    }
+                    $sql = "SELECT * FROM computer ORDER BY $order $ascORdesc";
+                    $result = $DBconn->query($sql);
+                    $computer = new Computer();
+                    $computerService = new ComputerManager();
+                    while($row = mysqli_fetch_assoc($result)){
+                        $computerService->connectionWithDBorForm($computer, $row);
                 ?>
                 
                 <div class="computer">
@@ -113,10 +149,11 @@ $cart = 0;
                             <li><?php echo $row['gpu'] ?></li>
                             <li><?php echo $row['ram'] ?></li>
                             <li><?php echo $row['storage'] ?></li>
-                            <li><?php echo $row['price'] ?></li>
+                            <li class="price"><?php echo $row['price'] ?></li>
                             <li class="discount"><?php echo $row['discount'] ?>%</li>
-                            <li>price after discount</li>
+                            <li><?php echo $computer->getPriceAfterDiscount(); ?></li>
                             <a href="?add=<?php echo $row['computer_id']; ?>">Add to Cart</a>
+                            
 
 
                         </ul>
@@ -130,12 +167,11 @@ $cart = 0;
                 //?ADD
                 if(isset($_GET['add'])){
                     $id = $_GET['add'];
-                    setcookie('computer['.$id.']', $id, time()+86400);
+                    setcookie('computer['.$id.']', $id, time() + 3600, "/", $serverName);
                     header('Location:'.$_SERVER['HTTP_REFERER']);//go to last page
                 }
-                
-                
 
+                
                 
                 ?>
                 

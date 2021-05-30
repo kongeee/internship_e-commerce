@@ -52,7 +52,10 @@ class Computer{
     }
 
     function getPriceAfterDiscount(){
-        return $this->price - (($this->price / $this->discount) * 100);//calculate price after discount
+        if($this->discount != 0){
+        return $this->price - (($this->price * $this->discount) / 100);//calculate price after discount
+        }
+        return $this->price;
     }
 
     function getRate(){
