@@ -126,13 +126,25 @@ $cart = 0;
                         }
                         
                     }
-
+                    //order
                     if(!isset($order)){
                         $order = "name";
                         $ascORdesc = "ASC";
 
                     }
-                    $sql = "SELECT * FROM computer ORDER BY $order $ascORdesc";
+                    
+                    
+                    //page
+                    if(isset($_GET['page'])){
+                        $start = ($_GET['page']-1) * 9;
+                        $finish = $_GET['page'] * 9;
+                    }else{
+                        $start = 0;
+                        $finish = 9;
+                    }
+
+
+                    $sql = "SELECT * FROM computer ORDER BY $order $ascORdesc LIMIT $start, $finish";
                     $result = $DBconn->query($sql);
                     $computer = new Computer();
                     $computerService = new ComputerManager();
@@ -140,6 +152,7 @@ $cart = 0;
                         $computerService->connectionWithDBorForm($computer, $row);
                 ?>
                 
+                <!-- computer card -->
                 <div class="computer">
                     <div class="computer_img"></div>
                     <div class="computer_info">
@@ -152,7 +165,8 @@ $cart = 0;
                             <li class="price"><?php echo $row['price'] ?></li>
                             <li class="discount"><?php echo $row['discount'] ?>%</li>
                             <li><?php echo $computer->getPriceAfterDiscount(); ?></li>
-                            <a href="?add=<?php echo $row['computer_id']; ?>">Add to Cart</a>
+                            <a href="?add=<?php echo $row['computer_id']; ?>">Add to Cart</a> | 
+                            <a href="./computer/computer_show.php?id=<?php echo $row['computer_id']; ?>">More Detail</a>
                             
 
 
@@ -174,8 +188,31 @@ $cart = 0;
                 
                 
                 ?>
-                
 
+                
+                <?php 
+                //TODO: PAGE
+                
+                $sql = "SELECT COUNT(*) AS number_of_computers FROM computer";
+                $result = $DBconn->query($sql);
+                $row = mysqli_fetch_assoc($result);
+                
+                $number_of_pages = ceil($row['number_of_computers'] / 9); //number of page
+
+                for($i=1; $i<=$number_of_pages; $i++){
+                ?>
+                <div id="pages">
+                    <ul id="pages_list">
+
+                        <!-- if there is order we have to send it with page info to run two get method at the same time -->
+                        <li><a href="?page=<?php echo $i; ?>&order=<?php if(isset($_GET['order'])){echo $_GET['order'];} ?>"><?php echo $i;?></a></li>
+                        
+                    </ul>
+                </div>
+                <?php } ?>
+
+            
+                    
             </article>
 
             <aside id="content2">

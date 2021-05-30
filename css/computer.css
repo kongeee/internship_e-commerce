@@ -1,0 +1,55 @@
+/*SHOW COMPUTER*/
+
+#show_computer{
+
+    border-style: solid;
+    position: relative;
+    left: 10%;
+    display: block;
+    background-color: white;
+    width: 50%;
+    height: auto;
+}
+
+#show_computer_img{
+
+    border-style: solid;
+    background-color: aqua;
+    width: 100px;
+    height: 100px;
+    float: left;
+    position: relative;
+    left: 5%;
+    top: 10%;
+}
+
+
+#show_computer_attributes{
+    position: relative;
+    left: 10%;
+}
+
+#show_computer_info{
+    position: relative;
+    left: 13%;
+    top: 10%;
+
+}
+
+.show_computer_table_element{
+    text-align:start;
+}
+
+#show_price{
+
+    position: relative;
+    width: 150px;
+    height: 70px;
+    border-style: none;
+    display: block;
+    font-size: 17px;
+
+    bottom: 50px;
+    left: 5%;
+
+}

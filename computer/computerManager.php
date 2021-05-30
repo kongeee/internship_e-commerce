@@ -59,7 +59,11 @@ class ComputerManager implements ComputerService{
         
         $cpu = explode("|",$row['cpu']);
         $gpu = explode("|", $row['gpu']);
+        
 
+        if(isset($row['computer_id'])){ //for forms
+            $computer->setID($row['computer_id']);
+        }
         $computer->setName($row['name']);
         $computer->setCpu($cpu[0]);
         $computer->setCpuBench($cpu[1]);
