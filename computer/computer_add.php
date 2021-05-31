@@ -35,6 +35,10 @@ include_once("../benchmarks/benchmark.php");
                     <td>Name</td> <td><input name="name" type="text"></td>
                 </tr>
                 <tr>
+                    <td>Stock</td> <td><input name="stock" type="text"></td>
+                </tr>
+                
+                <tr>
                     <td>CPU</td> <td>
                     <input name="cpu" list="cpu">
                     <datalist id="cpu" name="cpu">

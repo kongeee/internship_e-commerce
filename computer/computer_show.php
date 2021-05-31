@@ -5,12 +5,12 @@ include_once("../server.php");
 include_once("../computer/computer.php");
 include_once("../computer/computerService.php");
 include_once("../computer/computerManager.php");
+include_once("../sale/cart_functions.php");
 
 
 
 
-ob_start();
-session_start();
+
 $cart = 0;    
 ?>
 <!DOCTYPE html>
@@ -113,6 +113,7 @@ $cart = 0;
                             
                             <tr class="show_computer_table_element"><td>ID</td><td><?php echo $computer->getID(); ?></td></tr>
                             <tr class="show_computer_table_element"><td>Name</td><td><?php echo $computer->getName(); ?></td></tr>
+                            <tr class="show_computer_table_element"><td>Stock</td><td><?php echo $computer->getStock(); ?></td></tr>
                             <tr class="show_computer_table_element"><td>CPU</td><td><?php echo $computer->getCpu(); ?></td></tr>
                             <tr class="show_computer_table_element"><td>GPU</td><td><?php echo $computer->getGpu(); ?></td></tr>
                             <tr class="show_computer_table_element"><td>Ram</td><td><?php echo $computer->getRam(); ?></td></tr>
@@ -162,8 +163,7 @@ $cart = 0;
                 //?ADD
                 if(isset($_GET['add'])){
                     $id = $_GET['add'];
-                    setcookie('computer['.$id.']', $id, time() + 3600, "/", $serverName);
-                    header('Location:'.$_SERVER['HTTP_REFERER']);//go to last page
+                    cart_add($id);
                 }
 
                 

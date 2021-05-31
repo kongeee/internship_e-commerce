@@ -3,6 +3,7 @@
 class Computer{
     private $id;
     private $name;
+    private $stock;
     private $cpu;
     private $cpu_bench;
     private $gpu;
@@ -25,6 +26,9 @@ class Computer{
     }
     function getName(){
         return $this->name;
+    }
+    function getStock(){
+        return $this->stock;
     }
     function getCpu(){
         return $this->cpu;
@@ -75,6 +79,9 @@ class Computer{
     }
     function setName($name){
         $this->name = $name;
+    }
+    function setStock($stock){
+        $this->stock = $stock;
     }
     function setCpu($cpu){
         $this->cpu = $cpu;

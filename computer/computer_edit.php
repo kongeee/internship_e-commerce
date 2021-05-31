@@ -47,6 +47,9 @@ if(!$_POST){
                     <td>Name</td> <td><textarea name="name" cols="20" rows="1"><?php echo $row['name'] ?></textarea></td>
                 </tr>
                 <tr>
+                    <td>Stock</td> <td><textarea name="stock" cols="20" rows="1"><?php echo $row['stock'] ?></textarea></td>
+                </tr>
+                <tr>
                     <td>CPU</td> <td>
                     <input name="cpu" list="cpu" value="<?php echo $row['cpu']."|".$row['cpu_bench']; ?>">
                     
@@ -99,7 +102,7 @@ if(!$_POST){
 </html>
 <?php }else{
     
-    echo $computerService->edit($computer, $id, $_POST['name'], $_POST['cpu'], $_POST['gpu'], $_POST['ram'], $_POST['storage'], $_POST['price'], $_POST['discount'], $_POST['type'], $_POST['description']);
+    echo $computerService->edit($computer, $id, $_POST['name'], $_POST['stock'] , $_POST['cpu'], $_POST['gpu'], $_POST['ram'], $_POST['storage'], $_POST['price'], $_POST['discount'], $_POST['type'], $_POST['description']);
 
     header("Refresh: 2; url=../admin_panel/adminHomepage.php");
     

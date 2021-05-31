@@ -10,6 +10,7 @@ class ComputerManager implements ComputerService{
         global $DBconn;
 
         $name = $computer->getName();
+        $stock = $computer->getStock();
         $cpu = $computer->getCpu();
         $cpu_bench = $computer->getCpuBench();
         $gpu = $computer->getGpu();
@@ -24,8 +25,8 @@ class ComputerManager implements ComputerService{
         $result = $this->nameCheck($computer->getName());
 
         if($result){ //this computer is added to DB for the first time
-            $sql = "INSERT INTO computer (name, cpu, cpu_bench, gpu, gpu_bench, ram, storage, price, discount, type, description)
-            VALUES('$name', '$cpu', '$cpu_bench', '$gpu', '$gpu_bench' , '$ram', '$storage', '$price', '$discount', '$type', '$description')";
+            $sql = "INSERT INTO computer (name,stock, cpu, cpu_bench, gpu, gpu_bench, ram, storage, price, discount, type, description)
+            VALUES('$name', '$stock', '$cpu', '$cpu_bench', '$gpu', '$gpu_bench' , '$ram', '$storage', '$price', '$discount', '$type', '$description')";
 
             if($DBconn->query($sql) === TRUE){
                 return "Added successfully!!";
@@ -65,6 +66,7 @@ class ComputerManager implements ComputerService{
             $computer->setID($row['computer_id']);
         }
         $computer->setName($row['name']);
+        $computer->setStock($row['stock']);
         $computer->setCpu($cpu[0]);
         $computer->setCpuBench($cpu[1]);
         $computer->setGpu($gpu[0]);
@@ -82,7 +84,7 @@ class ComputerManager implements ComputerService{
 
 
     //CPU EDITLERKEN BENCHMARK PUANINI DEGİSTİRMEYİ UNUTMA  !!!!!!!!!!!!!!!!!!!
-    public function edit($computer, $id, $name, $cpu, $gpu, $ram, $storage, $price, $discount, $type, $description){
+    public function edit($computer, $id, $name, $stock, $cpu, $gpu, $ram, $storage, $price, $discount, $type, $description){
         global $DBconn;
 
         
@@ -91,7 +93,7 @@ class ComputerManager implements ComputerService{
         $cpu = explode("|", $cpu);
         $gpu = explode("|", $gpu);
 
-        $sql = "UPDATE computer SET name='$name', cpu='$cpu[0]', cpu_bench='$cpu[1]', gpu='$gpu[0]', gpu_bench='$gpu[1]', ram='$ram', storage='$storage', price='$price', discount='$discount', type='$type', description='$description' WHERE computer_id='$id'";
+        $sql = "UPDATE computer SET name='$name', stock='$stock', cpu='$cpu[0]', cpu_bench='$cpu[1]', gpu='$gpu[0]', gpu_bench='$gpu[1]', ram='$ram', storage='$storage', price='$price', discount='$discount', type='$type', description='$description' WHERE computer_id='$id'";
         if($DBconn->query($sql) === TRUE){
             return "Edit completed<br>";
         }

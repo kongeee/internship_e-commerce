@@ -40,6 +40,7 @@ if(!$DBconn->query($sql) === TRUE){
 $sql = "CREATE TABLE IF NOT EXISTS computer(
     computer_id INTEGER AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
+    stock INTEGER,
     cpu VARCHAR(50),
     cpu_bench FLOAT,
     gpu VARCHAR(50),

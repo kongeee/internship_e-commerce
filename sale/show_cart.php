@@ -5,12 +5,12 @@ include_once("../server.php");
 include_once("../computer/computer.php");
 include_once("../computer/computerService.php");
 include_once("../computer/computerManager.php");
+include_once("../sale/cart_functions.php");
 
 
 
 
-ob_start();
-session_start();
+
 $total = 0;    
 ?>
 <!DOCTYPE html>
@@ -94,7 +94,7 @@ $total = 0;
                 <?php if(isset($_COOKIE['computer'])){//if computer cookie exists ?>
 
                 <table id="cart_table">
-                    <tr><th>Image</th><th>Name</th><th>Price</th><th>Discount</th><th>Final Price</th><th>Delete From Cart</th></tr>
+                    <tr><th>Image</th><th>Name</th><th>Stock</th><th>Price</th><th>Discount</th><th>Final Price</th><th>Delete From Cart</th></tr>
 
                     <?php
                     $computer = new Computer();
@@ -107,7 +107,7 @@ $total = 0;
                         $computerService->connectionWithDBorForm($computer, $row);
                         $total += $computer->getPriceAfterDiscount();
                 
-                        echo "<tr><td><a href='../computer/computer_show.php?id=$id'><div class='cart_img'></div></a></td><td>". $computer->getName() . "</td><td>". $computer->getPrice() . "</td><td>". $computer->getDiscount() . "%</td><td>". $computer->getPriceAfterDiscount() . "</td><td><a href='?delete=$id'>Delete from cart</a></td></tr>";
+                        echo "<tr><td><a href='../computer/computer_show.php?id=$id'><div class='cart_img'></div></a></td><td>". $computer->getName() . "</td><td>". $computer->getStock() . "</td><td>". $computer->getPrice() . "</td><td>". $computer->getDiscount() . "%</td><td>". $computer->getPriceAfterDiscount() . "</td><td><a href='?delete=$id'>Delete from cart</a></td></tr>";
                         
                      } ?>
 
@@ -139,17 +139,13 @@ $total = 0;
             <?php //delete and delete all operations
             if(isset($_GET['deleteall'])){
     
-                foreach($_COOKIE['computer'] as $id){
-                    setcookie('computer['.$id.']', "", time() - 3600, "/", $serverName);
-                    
-                }
-                header('Location:'.$_SERVER['HTTP_REFERER']);
+                cart_delete_all();
             }
             
             if(isset($_GET['delete'])){
-            
-                setcookie('computer['.$_GET['delete'].']', "", time() - 3600, "/", $serverName);
-                header('Location:'.$_SERVER['HTTP_REFERER']);
+                $id = $_GET['delete'];
+                cart_delete($id);
+                
             }
             
             ?>

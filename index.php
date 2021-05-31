@@ -5,12 +5,12 @@ include_once("./server.php");
 include_once("./computer/computer.php");
 include_once("./computer/computerService.php");
 include_once("./computer/computerManager.php");
+include_once("./sale/cart_functions.php");
 
 
 
 
-ob_start();
-session_start();
+
 $cart = 0;    
 ?>
 <!DOCTYPE html>
@@ -159,6 +159,7 @@ $cart = 0;
                     <div class="computer_info">
                         <ul id="computer-list">
                             <li><?php echo $row['name'] ?></li>
+                            <li><?php echo $row['stock'] ?></li>
                             <li><?php echo $row['cpu'] ?></li>
                             <li><?php echo $row['gpu'] ?></li>
                             <li><?php echo $row['ram'] ?></li>
@@ -182,8 +183,7 @@ $cart = 0;
                 //?ADD
                 if(isset($_GET['add'])){
                     $id = $_GET['add'];
-                    setcookie('computer['.$id.']', $id, time() + 3600, "/", $serverName);
-                    header('Location:'.$_SERVER['HTTP_REFERER']);//go to last page
+                    cart_add($id);
                 }
 
                 
