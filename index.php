@@ -85,6 +85,7 @@ $cart = 0;
                     
                     <form action="" method="GET">
                         <li class="menu-element"><select name="order" id="">
+                        <option value="name" selected>Name</option>
                         <option value="price">Lowest Price</option>
                         <option value="gaming">Gaming First</option>
                         <option value="discount">Highest Discount</option>
@@ -113,30 +114,30 @@ $cart = 0;
                     //TODO: sort the computers
                     if(isset($_GET['order'])){
                         if($_GET['order'] == 'gaming'){
-                            $order = "type";
+                            $order = "type";    //sort with type (gaming first)
                             $ascORdesc = "ASC";
                         }
                         else if($_GET['order'] == 'discount'){
-                            $order = "discount";
+                            $order = "discount"; //sort with discount rate
                             $ascORdesc = "DESC";
                         }
                         else if($_GET['order'] == 'price'){
-                            $order = "price";
+                            $order = "price-((price * discount)/100)"; //sort with price after discount
                             $ascORdesc = "ASC";
                         }
                         
                     }
                     //order
                     if(!isset($order)){
-                        $order = "name";
+                        $order = "name";   //sort with name
                         $ascORdesc = "ASC";
 
                     }
                     
                     
                     //page
-                    if(isset($_GET['page'])){
-                        $start = ($_GET['page']-1) * 9;
+                    if(isset($_GET['page'])){  //if there is page operation
+                        $start = ($_GET['page']-1) * 9;  
                         $finish = $_GET['page'] * 9;
                     }else{
                         $start = 0;
@@ -203,7 +204,7 @@ $cart = 0;
                 ?>
                 <div id="pages">
                     <ul id="pages_list">
-
+                    
                         <!-- if there is order we have to send it with page info to run two get method at the same time -->
                         <li><a href="?page=<?php echo $i; ?>&order=<?php if(isset($_GET['order'])){echo $_GET['order'];} ?>"><?php echo $i;?></a></li>
                         

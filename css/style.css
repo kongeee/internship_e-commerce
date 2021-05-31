@@ -7,7 +7,7 @@
     border-style: solid;
     border-width: 1px;
     margin: auto;
-    width: 99%;
+    width: 100%;
     
     
     
@@ -84,7 +84,7 @@
 #menu-bar{
    
     background-color:#ac8654;
-    height: auto;
+    
     width: 100%; 
      
  }
@@ -234,8 +234,8 @@ ul#pages_list{
 
 }
 
-#pages ul li a:hover{
-    background-color: #27ae60;
+#pages ul li:hover{
+    border-color: #ce1818;
 }
 
 

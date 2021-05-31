@@ -3,10 +3,8 @@ function searchSomething(){
 }
 
 
-if(document.getElementsByClassName("discount").innerHTML != "0%"){
-    
-    document.getElementsByClassName("price").style.color = "red";
-    document.getElementsByClassName("price").style.textDecoration = "line-through";
+document.getElementsByClassName("price").style.color = "red";
+document.getElementsByClassName("price").style.textDecoration = "line-through";
 
-}
+
     

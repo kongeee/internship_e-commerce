@@ -58,4 +58,45 @@ if(!$DBconn->query($sql) === TRUE){
     echo "(computer)table is not created";
 }
 
+$sql = "CREATE TABLE IF NOT EXISTS comment(
+    comment_id INTEGER AUTO_INCREMENT,
+    user_id INTEGER,
+    computer_id INTEGER,
+    caption VARCHAR(100),
+    comment VARCHAR(255),
+    rate INTEGER,
+    PRIMARY KEY(comment_id),
+    FOREIGN KEY(user_id) REFERENCES user(user_id),
+    FOREIGN KEY(computer_id) REFERENCES computer(computer_id)
+    )";
+
+if(!$DBconn->query($sql) === TRUE){
+    echo "(comment)table is not created";
+}
+
+$sql = "CREATE TABLE IF NOT EXISTS address(
+    address_id INTEGER AUTO_INCREMENT,
+    user_id INTEGER,
+    location VARCHAR(255),
+
+    PRIMARY KEY(address_id)
+    
+)";
+
+if(!$DBconn->query($sql) === TRUE){
+    echo "(address)table is not created";
+}
+
+$sql = "CREATE TABLE IF NOT EXISTS image(
+    img_id INTEGER AUTO_INCREMENT,
+    computer_id INTEGER,
+    path VARCHAR(255),
+
+    PRIMARY KEY(img_id)
+)";
+
+if(!$DBconn->query($sql) === TRUE){
+    echo "(image)table is not created";
+}
+
 ?>

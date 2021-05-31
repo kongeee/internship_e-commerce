@@ -72,7 +72,7 @@ $cart = 0;
                     <li class="menu-element"><a class="menu-link" href="#">Best Computers</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Compare Computers</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">USER</a></li>
-                    <li class="menu-element"><a class="menu-link" href="./sale/show_cart.php?cart=true">CART(<?php 
+                    <li class="menu-element"><a class="menu-link" href="../sale/show_cart.php?cart=true">CART(<?php 
                     
                     //?Number of computers in the cart
                     if(isset($_COOKIE['computer'])){
@@ -89,7 +89,7 @@ $cart = 0;
                 
             </nav>
             
-            <article id="content" style="width: 99%;">
+            <article id="content" style="width: 100%;">
                 
                 <?php
                     $id = $_GET['id'];
@@ -118,6 +118,8 @@ $cart = 0;
                             <tr class="show_computer_table_element"><td>Ram</td><td><?php echo $computer->getRam(); ?></td></tr>
                             <tr class="show_computer_table_element"><td>Storage</td><td><?php echo $computer->getStorage(); ?></td></tr>
                             <tr class="show_computer_table_element"><td>Type</td><td><?php echo $computer->gettype(); ?></td></tr>
+                            <tr class="show_computer_table_element"><td colspan="2"><a href="?add=<?php echo $computer->getID(); ?>">Add to CART</a></td></tr>
+                            
                            
                             
                         </table>
@@ -132,6 +134,25 @@ $cart = 0;
 
                     <p>Description :</p>
                     <p><?php echo $computer->getDescription(); ?></p>
+
+                    <div id="images">
+
+                    <ul>
+                        <li class="image_element"></li>
+                        <li class="image_element"></li>
+                        <li class="image_element"></li>
+                        <li class="image_element"></li>
+                        <li class="image_element"></li>
+                        <li class="image_element"></li>
+                        <li class="image_element"></li>
+                        <li class="image_element"></li>
+                        <li class="image_element"></li>
+                        <li class="image_element"></li>
+                        <li class="image_element"></li>
+                        <li class="image_element"></li>
+                    </ul>
+
+                </div>
                 </div>
                 
                 
@@ -148,9 +169,34 @@ $cart = 0;
                 
                 
                 ?>
+
                 
+                
+                <div id="comments">
+                    
+                <form action="comment.php" method="POST">
+                    <input type="text" name="caption">
+                    <select name="rate" id="" required>
+                        <option value="" selected></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+
+                    <textarea name="comment" id="" cols="30" rows="10"></textarea>
+
+                    <input type="submit" value="Comment">
+                </form>
+
+                </div>
 
             </article>
+
+            
+
+            
 
             
 
@@ -165,7 +211,7 @@ $cart = 0;
             
 
         </div>
-        <script src="js/main.js" type="text/javascript"></script>
+        <script src="../js/main.js" type="text/javascript"></script>
     </body>
     
 </html>

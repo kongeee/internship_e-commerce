@@ -4,10 +4,9 @@
 
     border-style: solid;
     position: relative;
-    left: 10%;
     display: block;
     background-color: white;
-    width: 50%;
+    width: 100%;
     height: auto;
 }
 
@@ -53,3 +52,48 @@
     left: 5%;
 
 }
+
+/*right-side images*/
+
+#images{
+    
+}
+
+#images ul{
+    list-style-type: none;
+}
+
+
+/*Comments*/
+
+#comments{
+    border: solid;
+    height: 200px;
+    width: 100%;
+    position: relative;
+
+    
+
+    background-color: rgb(160, 173, 39);
+}
+
+/*CART*/
+
+#cart_table{
+    border-spacing: 25px;
+}
+
+#cart_table tr td{
+    margin-left: 5px;
+}
+
+.cart_img{
+    border: solid 1px;
+    height: 50px;
+    width: 50px;
+
+    background-color: aquamarine;
+
+}
+
+
