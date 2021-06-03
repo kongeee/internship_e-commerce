@@ -11,7 +11,7 @@ class User{
 
     //Getters
 
-    function getUserID(){
+    function getID(){
         return $this->user_id;
     }
     function getEmail(){
@@ -29,6 +29,9 @@ class User{
 
     //Setters
 
+    function setID($user_id){
+        $this->user_id = $user_id;
+    }
     function setEmail($email){
         $this->email = $email;
     }

@@ -26,6 +26,8 @@ if(!isset($_COOKIE['user'])){
         Password : <input type="password" name="password"> <br>
         <input type="submit" value="Submit"> <input type="reset" value="Reset">
     </form>
+
+    <a href="./userRegister.php">Register</a>
     
     
 </body>

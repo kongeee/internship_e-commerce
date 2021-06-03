@@ -175,7 +175,7 @@ $cart = 0;
                     <div class="computer_info">
                         <ul id="computer-list">
                             <li><?php echo $row['name'] ?></li>
-                            <li><?php echo $row['stock'] ?></li>
+                            <li><?php echo $row['stock'] ?> in stock</li>
                             <li><?php echo $row['cpu'] ?></li>
                             <li><?php echo $row['gpu'] ?></li>
                             <li><?php echo $row['ram'] ?></li>

@@ -28,8 +28,36 @@ class UserManager implements UserService{
 
     }
     public function edit($user, $user_id, $email, $first_name, $last_name){}
-    public function resetPassword($user){}
-    public function delete($user_id){}
+    
+    
+    
+    public function resetPassword($user, $newPassword){
+        global $DBconn;
+        $newPassword = md5($newPassword);
+        $user_id = $user->getID();
+        $sql = "UPDATE user SET password='$newPassword' WHERE user_id='$user_id'";
+        if($DBconn->query($sql) === TRUE){
+           
+            return "password has been changed";
+        }
+
+        return "Password reset ERROR!!";
+        header("Refresh: 3 ; url=user_edit.php");
+    }
+    
+    
+    public function delete($user_id){
+        global $DBconn, $serverName;
+        $sql = "DELETE FROM user WHERE user_id='$user_id'";
+        if($DBconn->query($sql) === TRUE){
+            setcookie("user", $user_id, time()-3600, "/", $serverName);
+            return "Delete Successfully";
+        }
+        return "Delete Error";
+    }
+    
+    
+    
     public function emailControl($email){
         global $DBconn;
 
@@ -43,6 +71,10 @@ class UserManager implements UserService{
     }
     
     public function connectionWithDBorForm($user, $row){
+        if(isset($row['user_id'])){ //for forms
+            $user->setID($row['user_id']);
+        }
+
         $user->setEmail($row['email']);
         $user->setFirstName($row['first_name']);
         $user->setLastName($row['last_name']);
