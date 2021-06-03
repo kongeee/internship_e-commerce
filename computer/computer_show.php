@@ -174,7 +174,9 @@ $cart = 0;
                 
                 <div id="comments">
                     
-                <form action="comment.php" method="POST">
+                <form action="../comment/comment.php" method="POST">
+                    <input name="computer_id" type="hidden" value="<?php echo $id ?>">
+                    <input name="user_id" type="hidden" value="user_id">
                     <input type="text" name="caption">
                     <select name="rate" id="" required>
                         <option value="" selected></option>
