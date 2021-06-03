@@ -173,10 +173,10 @@ $cart = 0;
                 
                 
                 <div id="comments">
-                    
+                <p style="color:red">You have to log in to comment</p>
                 <form action="../comment/comment.php" method="POST">
                     <input name="computer_id" type="hidden" value="<?php echo $id ?>">
-                    <input name="user_id" type="hidden" value="user_id">
+                    <input name="user_id" type="hidden" value=<?php  if(isset($_COOKIE['user'])){echo $_COOKIE['user'];} ?>>
                     <input type="text" name="caption">
                     <select name="rate" id="" required>
                         <option value="" selected></option>

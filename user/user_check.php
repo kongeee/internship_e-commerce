@@ -2,39 +2,27 @@
 
 include_once("../server.php");
 
-if(isset($_POST)){
+ob_start();
+session_start();
 
-    $e_mail = $_POST['e_mail'];
-    $first = $_POST['first_name'];
-    $last = $_POST['last_name'];
-    $password = md5($_POST['password']);
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-    $sql = "SELECT * FROM user U WHERE U.email='$e_mail'";
-    $result = $DBconn->query($sql);
-    $row = mysqli_fetch_assoc($result);
+$sql = "SELECT *
+        FROM user U
+        WHERE U.email='$email' AND U.password=MD5('$password')";
+$result = $DBconn->query($sql);
+$row = mysqli_fetch_assoc($result);
+
+if($email == $row['email'] && md5($password) == $row['password']){
+    setcookie("user", $row['user_id'], time()+3600, "/", $serverName);
+    header("Location:../index.php");
     
-    if($row['email']){
-        echo "This e mail already exists";
-        header("location:".$_SERVER['HTTP_REFERER']);
 
-    }
-    else{
-        $sql = "INSERT INTO user (email, first_name, last_name, password)
-        VALUES($e_mail, $first, $last, $password)";
-
-        $DBconn->query($sql);
-
-        echo "AAA";
-    }
-
-
-    echo "<p style='text-align: center;'>Registiration is complete</p>";
+    
+}else{
+    header("Location:../sessionError.php");
 }
-
-else{
-    ;
-}
-
 
 ?>
 

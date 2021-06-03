@@ -1,3 +1,9 @@
+<?php
+
+ob_start();
+
+if(!isset($_COOKIE['user'])){
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +19,10 @@
 </head>
 <body>
     
+    <h2>Login</h2>
+    
     <form action="user_check.php" method="POST">
-        E mail :<input type="email" name="e_mail"> <br>
-        First name : <input type="text" name="first_name"> <br>
-        Last name : <input type="text" name="last_name"> <br>
+        E mail :<input type="email" name="email"> <br>
         Password : <input type="password" name="password"> <br>
         <input type="submit" value="Submit"> <input type="reset" value="Reset">
     </form>
@@ -24,3 +30,8 @@
     
 </body>
 </html>
+
+<?php }else{
+
+    echo "Alreadey log in";
+} ?>

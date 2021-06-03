@@ -3,6 +3,7 @@ include_once("../server.php");
 
 
 
+
 class ComputerManager implements ComputerService{
 
     public function add($computer){
@@ -22,9 +23,9 @@ class ComputerManager implements ComputerService{
         $description = $computer->getDescription();
         $type = $computer->getType();
         
-        $result = $this->nameCheck($computer->getName());
+        $namecheck = $this->nameCheck($computer->getName());
 
-        if($result){ //this computer is added to DB for the first time
+        if($namecheck){ //this computer is added to DB for the first time
             $sql = "INSERT INTO computer (name,stock, cpu, cpu_bench, gpu, gpu_bench, ram, storage, price, discount, type, description)
             VALUES('$name', '$stock', '$cpu', '$cpu_bench', '$gpu', '$gpu_bench' , '$ram', '$storage', '$price', '$discount', '$type', '$description')";
 
@@ -46,6 +47,7 @@ class ComputerManager implements ComputerService{
         $sql = "DELETE FROM computer WHERE computer_id='$id'";
 
         if($DBconn->query($sql) === TRUE){
+            
             return "Delete Successfully";
         }
         return "Delete Error";

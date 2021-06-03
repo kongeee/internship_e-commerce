@@ -71,7 +71,23 @@ $total = 0;
                     <li class="menu-element"><a class="menu-link" href="#">About Us</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Best Computers</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Compare Computers</a></li>
-                    <li class="menu-element"><a class="menu-link" href="#">USER</a></li>
+                    <?php 
+                    if(isset($_COOKIE['user'])){//if user is logged in
+                       
+                        $user_id = $_COOKIE['user'];
+                        $sql = "SELECT * FROM user WHERE user_id='$user_id'";
+                        $result = $DBconn->query($sql);
+                        $row = mysqli_fetch_assoc($result);
+
+                    
+                        echo "<li class='menu-element'><a class='menu-link' href='../user/user_menu.php'>" .$row['first_name']. " " . $row['last_name'] . "</a></li>";
+                    }
+                    
+                    else{//if user is not logged in
+                        echo "<li class='menu-element'><a class='menu-link' href='../user/userLogin.php'>USER</a></li>";
+                        
+                    }
+                     ?>
                     <li class="menu-element"><a class="menu-link" href="../sale/show_cart.php?cart=true">CART(<?php 
                     
                     //?Number of computers in the cart

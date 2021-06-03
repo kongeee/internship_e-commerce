@@ -10,7 +10,7 @@
     </head>
 
     <body style="text-align: center;">
-        <h2>OOOPS!!!</h2>
+        <h2>OOOPS!!! You have to login</h2>
         <p>Please click <a href="index.php">this</a> button to login</p>
         
         
