@@ -6,10 +6,11 @@ include_once("../user/userManager.php");
 include_once("../user/user_cookie.php");
 
 $user_id = $_GET['user_id'];
+$address_id = $_GET['address_id'];
 
-$sql = "SELECT * FROM address WHERE user_id='$user_id'";
+$sql = "SELECT * FROM address WHERE address_id='$address_id'";
 $result = $DBconn->query($sql);
-
+$row = mysqli_fetch_assoc($result);
 
 if(!$_POST){
 
@@ -35,30 +36,26 @@ if(!$_POST){
    
     <form action="" method="POST">
         
-        Locations: <select name="location" id="">
-            <?php while($row = mysqli_fetch_assoc($result)){
-                $location = $row['location'];
-                echo "<option value='$location'>$location</option>";
-            } ?>
             
-        </select> <br> 
+        <input type="text" name="location" value="<?php echo $row['location'] ?>"> <br> 
         
        
         <input type="submit" value="Submit"> <input type="reset" value="Reset">
-
     </form>
-
     
+    <a href="./delete_address.php?address_id=<?php echo $address_id ?>">Delete it</a>
 
     <?php }
     else{
         $location = $_POST['location'];
-        $sql = "SELECT * FROM address WHERE location='$location'";
-        $result = $DBconn->query($sql);
-        $row = mysqli_fetch_assoc($result);
+        $sql = "UPDATE address SET location='$location' WHERE address_id='$address_id'";
+        if($DBconn->query($sql) === TRUE){
+            echo "Edit Successful";
+        }
+        else{
+            echo "Edit ERROR";
+        }
 
-        $address_id = $row['address_id'];
-        header("Location:./edit2_address.php?user_id=$user_id&address_id=$address_id");
     
     }
 

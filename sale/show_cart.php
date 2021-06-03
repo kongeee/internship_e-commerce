@@ -134,10 +134,15 @@ $total = 0;
                 <?php }else{
                             echo "Cart is empty<br>";
                         }
-
+                    
                     echo "TOTAL PRICE = " . $total . " $<br><br>";
                     echo "<a href='?deleteall=true'>Delete all elements in the cart</a>";
+
+                    
                 ?>
+                <br>
+
+                <a href="">BUY</a>
 
             </article>
 
@@ -166,6 +171,7 @@ $total = 0;
             
             ?>
             
+
 
         </div>
         <script src="../js/main.js" type="text/javascript"></script>
