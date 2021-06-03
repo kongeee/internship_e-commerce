@@ -96,7 +96,7 @@ class ComputerManager implements ComputerService{
         $gpu = explode("|", $gpu);
 
         $sql = "UPDATE computer SET name='$name', stock='$stock', cpu='$cpu[0]', cpu_bench='$cpu[1]', gpu='$gpu[0]', gpu_bench='$gpu[1]', ram='$ram', storage='$storage', price='$price', discount='$discount', type='$type', description='$description' WHERE computer_id='$id'";
-        if($DBconn->query($sql) === TRUE){
+        if($DBconn->query($sql) === TRUE || $this->nameCheck($name)){
             return "Edit completed<br>";
         }
         

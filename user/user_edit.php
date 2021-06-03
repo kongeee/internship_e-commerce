@@ -5,9 +5,21 @@ include_once("../user/userService.php");
 include_once("../user/userManager.php");
 include_once("../user/user_cookie.php");
 
+$user_id = $_GET['user_id'];
+$user = new User();
+
+$userService = new UserManager();
+
+ 
+$sql="SELECT * FROM user WHERE user_id='$user_id'";
+$result = $DBconn->query($sql);
+$row = mysqli_fetch_assoc($result);
+
+
+$userService->connectionWithDBorForm($user, $row);
 
 if(!$_POST){
-    $user_id = $_GET['user_id'];
+
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +65,7 @@ if(!$_POST){
 
 <?php
 }else{
-    $user_id = $_POST['user_id'];
-
+    echo $userService->edit($user, $user_id, $_POST['email'], $_POST['first_name'], $_POST['last_name']);
+    header("Refresh: 3 ; url=user_edit.php?user_id=$user_id");
 }
 ?>

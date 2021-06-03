@@ -27,7 +27,24 @@ class UserManager implements UserService{
         }
 
     }
-    public function edit($user, $user_id, $email, $first_name, $last_name){}
+    
+    
+    public function edit($user, $user_id, $email, $first_name, $last_name){
+        global $DBconn;
+        
+        $sql = "UPDATE user SET email='$email', first_name='$first_name', last_name='$last_name' WHERE user_id='$user_id'";
+
+        if($user->getEmail() == $email || $this->emailControl($email)){
+            if($DBconn->query($sql) === TRUE){
+                return "Edit successful";
+            }
+        }
+        
+
+        
+        return "Edit Error!!!";
+
+    }
     
     
     
@@ -42,7 +59,7 @@ class UserManager implements UserService{
         }
 
         return "Password reset ERROR!!";
-        header("Refresh: 3 ; url=user_edit.php");
+        
     }
     
     

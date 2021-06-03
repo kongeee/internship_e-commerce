@@ -33,9 +33,9 @@ include_once("./user_cookie.php");
     ?>
     </h2>
     <table id="user_menu_table">
-        <tr><td>Edit user informations</td><td><button>Edit</button></td></tr>
-        <tr><td>Add address</td><td><button>Add address</button></td></tr>
-        <tr><td>Edit Addresses</td><td><a href="./user_edit.php?user_id=<?php echo $user_id; ?>">Edit</a></td></tr>
+        <tr><td>Edit user informations</td><td><a href="./user_edit.php?user_id=<?php echo $user_id; ?>">Edit</a></td></tr>
+        <tr><td>Add address</td><td><a href="../address/add_address.php?user_id=<?php echo $user_id; ?>">Add Address</a></td></tr>
+        <tr><td>Edit Addresses</td><td><a href="../address/edit_address.php?user_id=<?php echo $user_id; ?>">Edit Address</a></td></tr>
         <tr><td>Delete me</td><td><a href="./user_delete.php?user_id=<?php echo $user_id; ?>">Delete</a></td></tr>
         <tr><td>Safe Exit</td><td><a href="./user_exit.php?user_id=<?php echo $user_id; ?>">Safe Exit</a></td></tr>
 
