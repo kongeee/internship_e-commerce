@@ -142,7 +142,7 @@ $total = 0;
                 ?>
                 <br>
 
-                <a href="">BUY</a>
+                <a href="./sale.php">BUY</a>
 
             </article>
 

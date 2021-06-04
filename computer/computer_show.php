@@ -89,7 +89,7 @@ $cart = 0;
                 
             </nav>
             
-            <article id="content" style="width: 100%;">
+            <article id="content" style="width: 100%; height:auto;">
                 
                 <?php
                     $id = $_GET['id'];
@@ -133,27 +133,65 @@ $cart = 0;
                         <div id="show_price_after_discount">After Discount :<?php echo $computer->getPriceAfterDiscount(); ?></div>
                     </div>
 
-                    <p>Description :</p>
-                    <p><?php echo $computer->getDescription(); ?></p>
-
+                    <div id="description">
+                        <p>Description :</p>
+                        <p style="display: inline;"><?php echo $computer->getDescription(); ?>kjgfduhsguıdfs hgfdhgdfhsg dfhsgdfshg dfhsgu hdfsg hdfsghudfsgıudfguh dfsgıhfs dghfdsıughd fsıughsd fıghdfsıughdfısh gdfsıhgıdfh gıdfsuhıuf hgıdfuhgıd    uhsguıdfsh  gfdhgdf hsgdfhsgdfshgdfhsg uhdfsghdfsghudfsgıudfg  uhdfsgıhfsdghfdsıughdfsıug hsdfıghdfsıu ghdfıshgdfsıhgıdfhgıdfsuh ıufhgıdfuhgıdfshgdfıushdfıusghdfsjg fduhsguıdfs hg fdhgdfhsgdfhsgdfshgdfhsguhdfsghdfsgh udfsgıudfguhdfsgıhfsdghfdsıughdfsıughsdfıghdfsıugh dfıshgdfsıhgıdfhgıdfsuhıufhgıdf uhgıd fshgdfıushdfıusghd  fsjgfduhsguıdfshgfdh gdf hsgdfhs gdfshg dfh s guhdfsgh dfsghudfsgıud fguhdfsgıhfsdghfdsıughdfsıughsdfıghdfsı ughdfıshgdfsıhgıdfhgıdfsuhıufhgı dfuhgıdfshgdfıushdfı usghdfsjgfduhsguıdfshgfdhgdfhsgdfhs gdfshgdfhsguhdfsg hdfsghudfsgıudfg u hdfsgıhfsdghfdsıughdfsıug hs dfıghdfsıu ghdfısh gdfsıhgıdfhg ıdfsuhıufh gıdf uhgı dfshgdfıushdfı usghdfsjgfd uhsguıdfshgf dh gdfhsgdfhsgdfshgdfhsguhdf sg hdfsghudfsgıudfguhdfsgıhfsdghfdsıughdfsıughsdfıghdf sıughdfıshgdf sıhgıdfhgıdfsuhıufhg ıdfuhgıdfshgdfıushdfıusghdfs</p>
+                    </div>
+                   
                     <div id="images">
 
-                    <ul>
-                        <li class="image_element"></li>
-                        <li class="image_element"></li>
-                        <li class="image_element"></li>
-                        <li class="image_element"></li>
-                        <li class="image_element"></li>
-                        <li class="image_element"></li>
-                        <li class="image_element"></li>
-                        <li class="image_element"></li>
-                        <li class="image_element"></li>
-                        <li class="image_element"></li>
-                        <li class="image_element"></li>
-                        <li class="image_element"></li>
-                    </ul>
-
-                </div>
+                        <ul>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                            <li class="image_element"></li>
+                        </ul>
+                    </div>
+                
                 </div>
                 
                 
@@ -172,27 +210,56 @@ $cart = 0;
 
                 
                 
-                <div id="comments">
-                <p style="color:red">You have to log in to comment</p>
-                <form action="../comment/comment.php" method="POST">
-                    <input name="computer_id" type="hidden" value="<?php echo $id ?>">
-                    <input name="user_id" type="hidden" value=<?php  if(isset($_COOKIE['user'])){echo $_COOKIE['user'];} ?>>
-                    <input type="text" name="caption">
-                    <select name="rate" id="" required>
-                        <option value="" selected></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                <div id="do_comment">
+                    <p style="color:red">You have to log in to comment</p>
+                    <form action="../comment/comment.php" method="POST">
+                        <table id="do_comment_table">
 
-                    <textarea name="comment" id="" cols="30" rows="10"></textarea>
+                            <input name="computer_id" type="hidden" value="<?php echo $id ?>">
+                            <input name="user_id" type="hidden" value=<?php  if(isset($_COOKIE['user'])){echo $_COOKIE['user'];} ?>>
+                            <tr><td>Caption</td><td><input type="text" name="caption"></td></tr>
+                            <tr><td>Rate</td><td><select name="rate" id="" required>
+                                <option value="" selected></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            </td>
+                            </tr>
 
-                    <input type="submit" value="Comment">
-                </form>
+                            <tr><td>Comment</td><td><textarea name="comment" id="" cols="30" rows="10"></textarea></td></tr>
+
+                            <tr><td colspan="2"><input type="submit" value="Comment"></td></tr>
+                        </table>
+                    </form>
 
                 </div>
+
+
+                <div id="comments">
+
+                    <?php
+                        $sql = "SELECT * FROM comment C, user U WHERE C.computer_id='$id' AND U.user_id=C.user_id";
+                        $result = $DBconn->query($sql);
+                        while($row = mysqli_fetch_assoc($result)){
+                            
+                        
+
+                    ?>
+
+                    <table style="margin:10px;">
+                        <tr><td>Commenter : </td><td><?php echo $row['first_name'] . " " . $row['last_name']; ?></td></tr>
+                        <tr><td>Rate : </td><td><?php echo $row['rate']; ?></td></tr>
+                        <tr><td>Caption : </td><td><?php echo $row['caption']; ?></td></tr>
+                        <tr><td>Comment : </td><td><?php echo $row['comment']; ?></td></tr>
+                    </table>
+                    <hr>
+                    
+                    <?php } ?>
+                </div>
+                
 
             </article>
 

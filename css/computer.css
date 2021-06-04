@@ -5,7 +5,7 @@
     border-style: solid;
     position: relative;
     display: block;
-    background-color: white;
+    background-color: darkkhaki;
     width: 100%;
     height: auto;
 }
@@ -18,19 +18,19 @@
     height: 100px;
     float: left;
     position: relative;
-    left: 5%;
+    left: 30%;
     top: 10%;
 }
 
 
 #show_computer_attributes{
     position: relative;
-    left: 10%;
+    left: 5%;
 }
 
 #show_computer_info{
     position: relative;
-    left: 13%;
+    left: 30%;
     top: 10%;
 
 }
@@ -49,26 +49,50 @@
     font-size: 17px;
 
     bottom: 50px;
-    left: 5%;
+    left: 30%;
 
+}
+
+#description{
+    
+    width: 50%;
 }
 
 /*right-side images*/
 
 #images{
-    border: solid;
+    height: 200px;
+    width: 100%;
+    overflow: scroll;
+    position: relative;
+    
+
+    
+   
+
 }
 
 #images ul{
     list-style-type: none;
 }
 
+.image_element{
+    border: solid 2px;
+    height: 55px;
+    width: 55px;
+    background-color: red;
+    float: left;
+    margin: 5px;
+    
+    
+}
+
 
 /*Comments*/
 
-#comments{
+#do_comment{
     border: solid;
-    height: 200px;
+    height: 250px;
     width: 100%;
     position: relative;
 

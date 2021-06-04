@@ -80,7 +80,8 @@ $sql = "CREATE TABLE IF NOT EXISTS address(
     user_id INTEGER,
     location VARCHAR(255),
 
-    PRIMARY KEY(address_id)
+    PRIMARY KEY(address_id),
+    FOREIGN KEY(user_id) REFERENCES user(user_id)
     
 )";
 
@@ -93,11 +94,28 @@ $sql = "CREATE TABLE IF NOT EXISTS image(
     computer_id INTEGER,
     path VARCHAR(255),
 
-    PRIMARY KEY(img_id)
+    PRIMARY KEY(img_id),
+
+    FOREIGN KEY(computer_id) REFERENCES computer(computer_id)
 )";
 
 if(!$DBconn->query($sql) === TRUE){
     echo "(image)table is not created";
+}
+
+$sql = "CREATE TABLE IF NOT EXISTS sale(
+    sale_id INTEGER AUTO_INCREMENT,
+    computers TEXT,
+    user_id INTEGER,
+    price FLOAT,
+    state VARCHAR(50),
+
+    PRIMARY KEY(sale_id),
+    FOREIGN KEY(user_id) REFERENCES user(user_id)
+)";
+
+if(!$DBconn->query($sql) === TRUE){
+    echo "(sale)table is not created";
 }
 
 ?>
