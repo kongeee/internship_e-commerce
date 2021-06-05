@@ -43,17 +43,39 @@ include_once("../sale/cart_functions.php");
                     <a href="../index.php"><img id="logoimage" src="../images/logos/ekici-logo.png" alt="Logo"></a>
                 </div>
 
-                <div id="slogan">SLOGAN</div>
+                <div id="slogan">
+                <?php 
+                $sql = "SELECT * FROM text WHERE text_name='slogan'";
+                $result = $DBconn->query($sql);
+                $row = mysqli_fetch_assoc($result);
+                echo $row['text_content'];
+                ?>
+                </div>
                 
                 <!--social media icons-->
                 <div class="socialMedia">
-                    <a href="https://www.facebook.com" target="_blank"><img class="mediaicon" src="../images/icons/facebook.png" alt=""></a>
+                    <a href="<?php 
+                        $sql = "SELECT * FROM text WHERE text_name='facebook'";
+                        $result = $DBconn->query($sql);
+                        $row = mysqli_fetch_assoc($result);
+                        echo $row['text_content'];
+                        ?>" target="_blank"><img class="mediaicon" src="../images/icons/facebook.png" alt=""></a>
                 </div>
                 <div class="socialMedia">
-                    <a href="https://www.twitter.com" target="_blank"><img class="mediaicon" src="../images/icons/twitter.png" alt=""></a>
+                    <a href="<?php 
+                $sql = "SELECT * FROM text WHERE text_name='twitter'";
+                $result = $DBconn->query($sql);
+                $row = mysqli_fetch_assoc($result);
+                echo $row['text_content'];
+                ?>" target="_blank"><img class="mediaicon" src="../images/icons/twitter.png" alt=""></a>
                 </div>
                 <div class="socialMedia">
-                    <a href="https://www.instagram.com" target="_blank"><img class="mediaicon" src="../images/icons/instagram.png" alt=""></a>
+                    <a href="<?php 
+                $sql = "SELECT * FROM text WHERE text_name='instagram'";
+                $result = $DBconn->query($sql);
+                $row = mysqli_fetch_assoc($result);
+                echo $row['text_content'];
+                ?>" target="_blank"><img class="mediaicon" src="../images/icons/instagram.png" alt=""></a>
                 </div>
                 
                 
@@ -64,8 +86,8 @@ include_once("../sale/cart_functions.php");
             <nav id="menu-bar">
                 <ul id="menu-list">
                     <li class="menu-element"><a class="menu-link" href="../index.php">Home</a></li>
-                    <li class="menu-element"><a class="menu-link" href="#">About Us</a></li>
-                    <li class="menu-element"><a class="menu-link" href="#">Best Computers</a></li>
+                    <li class="menu-element"><a class="menu-link" href="../text/about_us.php">About Us</a></li>
+                    <li class="menu-element"><a class="menu-link" href="../computer/computer_deals.php">Best Computers</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Compare Computers</a></li>
                     <?php 
                     if(isset($_COOKIE['user'])){//if user is logged in
@@ -127,7 +149,7 @@ include_once("../sale/cart_functions.php");
                             <li class="discount"><?php echo $row['discount'] ?>%</li>
                             <li><?php echo $computer->getPriceAfterDiscount(); ?></li>
                             <a href="?add=<?php echo $row['computer_id']; ?>">Add to Cart</a> | 
-                            <a href="./computer/computer_show.php?id=<?php echo $row['computer_id']; ?>">More Detail</a>
+                            <a href="../computer/computer_show.php?id=<?php echo $row['computer_id']; ?>">More Detail</a>
                             
 
 
@@ -141,24 +163,18 @@ include_once("../sale/cart_functions.php");
             
 
             <footer id="footer">
-                <a href="#">Home</a>|
-                <a href="#">About Us</a> |
+                <a href="../index.php">Home</a>|
+                <a href="../text/about_us.php">About Us</a> |
                 <a href="#">Contact</a>
                 <br>
                 <p>All rights reserved</p>
 
             </footer>
 
-            <?php //delete and delete all operations
-            if(isset($_GET['deleteall'])){
-    
-                cart_delete_all();
-            }
-            
-            if(isset($_GET['delete'])){
-                $id = $_GET['delete'];
-                cart_delete($id);
-                
+            <?php
+             if(isset($_GET['add'])){
+                $id = $_GET['add'];
+                cart_add($id);
             }
             
             ?>

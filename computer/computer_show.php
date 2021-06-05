@@ -90,10 +90,10 @@ $cart = 0;
             <nav id="menu-bar">
                 <ul id="menu-list">
                     <li class="menu-element"><a class="menu-link" href="../index.php">Home</a></li>
-                    <li class="menu-element"><a class="menu-link" href="#">About Us</a></li>
-                    <li class="menu-element"><a class="menu-link" href="#">Best Computers</a></li>
+                    <li class="menu-element"><a class="menu-link" href="../text/about_us.php">About Us</a></li>
+                    <li class="menu-element"><a class="menu-link" href="../computer/computer_deals.php">New Computers</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Compare Computers</a></li>
-                    <li class="menu-element"><a class="menu-link" href="#">USER</a></li>
+                    
                     <li class="menu-element"><a class="menu-link" href="../sale/show_cart.php?cart=true">CART(<?php 
                     
                     //?Number of computers in the cart
@@ -292,8 +292,8 @@ $cart = 0;
             
 
             <footer id="footer">
-                <a href="#">Home</a>|
-                <a href="#">About Us</a> |
+                <a href="../index.php">Home</a>|
+                <a href="../text/about_us.php">About Us</a> |
                 <a href="#">Contact</a>
                 <br>
                 <p>All rights reserved</p>

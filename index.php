@@ -260,8 +260,8 @@ $cart = 0;
             </aside>
 
             <footer id="footer">
-                <a href="#">Home</a>|
-                <a href="#">About Us</a> |
+                <a href="./index.php">Home</a>|
+                <a href="./text/about_us.php">About Us</a> |
                 <a href="#">Contact</a>
                 <br>
                 <p>All rights reserved</p>
