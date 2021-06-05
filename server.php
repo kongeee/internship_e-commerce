@@ -121,4 +121,16 @@ if(!$DBconn->query($sql) === TRUE){
     echo "(sale)table is not created";
 }
 
+$sql = "CREATE TABLE IF NOT EXISTS text(
+    text_id INTEGER AUTO_INCREMENT,
+    text_name VARCHAR(50),
+    text_content TEXT,
+
+    PRIMARY KEY(text_id)
+)";
+
+if(!$DBconn->query($sql) === TRUE){
+    echo "(text)table is not created";
+}
+
 ?>

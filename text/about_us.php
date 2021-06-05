@@ -11,12 +11,12 @@ include_once("../sale/cart_functions.php");
 
 
 
-$total = 0;    
+$cart = 0;    
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Ekici Computer CART</title>
+        <title>Ekici Computer SHOW</title>
         <meta http-equiv="Content-Type" content = "text/html">
         <meta http-equiv="Content-Language" content = "en"> 
         <meta charset="utf-8">
@@ -75,11 +75,11 @@ $total = 0;
                 </div>
                 <div class="socialMedia">
                     <a href="<?php 
-                $sql = "SELECT * FROM text WHERE text_name='../instagram'";
+                $sql = "SELECT * FROM text WHERE text_name='instagram'";
                 $result = $DBconn->query($sql);
                 $row = mysqli_fetch_assoc($result);
                 echo $row['text_content'];
-                ?>" target="_blank"><img class="mediaicon" src="images/icons/instagram.png" alt=""></a>
+                ?>" target="_blank"><img class="mediaicon" src="../images/icons/instagram.png" alt=""></a>
                 </div>
                 
                 
@@ -93,23 +93,7 @@ $total = 0;
                     <li class="menu-element"><a class="menu-link" href="#">About Us</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Best Computers</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Compare Computers</a></li>
-                    <?php 
-                    if(isset($_COOKIE['user'])){//if user is logged in
-                       
-                        $user_id = $_COOKIE['user'];
-                        $sql = "SELECT * FROM user WHERE user_id='$user_id'";
-                        $result = $DBconn->query($sql);
-                        $row = mysqli_fetch_assoc($result);
-
-                    
-                        echo "<li class='menu-element'><a class='menu-link' href='../user/user_menu.php'>" .$row['first_name']. " " . $row['last_name'] . "</a></li>";
-                    }
-                    
-                    else{//if user is not logged in
-                        echo "<li class='menu-element'><a class='menu-link' href='../user/userLogin.php'>USER</a></li>";
-                        
-                    }
-                     ?>
+                    <li class="menu-element"><a class="menu-link" href="#">USER</a></li>
                     <li class="menu-element"><a class="menu-link" href="../sale/show_cart.php?cart=true">CART(<?php 
                     
                     //?Number of computers in the cart
@@ -127,46 +111,24 @@ $total = 0;
                 
             </nav>
             
-            <article id="content" style="width: 99%;">
+            <article id="content" style="width: 100%; height:auto;">
                 
-                <?php if(isset($_COOKIE['computer'])){//if computer cookie exists ?>
-
-                <table id="cart_table">
-                    <tr><th>Image</th><th>Name</th><th>Stock</th><th>Price</th><th>Discount</th><th>Final Price</th><th>Delete From Cart</th></tr>
-
-                    <?php
-                    $computer = new Computer();
-                    $computerService = new ComputerManager();
-                    foreach($_COOKIE['computer'] as $id){
-                        $sql = "SELECT * FROM computer C WHERE C.computer_id = '$id'";
-                        $result = $DBconn->query($sql);
-                        $row = mysqli_fetch_assoc($result);
-                        $id = $row['computer_id'];
-                        $computerService->connectionWithDBorForm($computer, $row);
-                        $total += $computer->getPriceAfterDiscount();
-                
-                        echo "<tr><td><a href='../computer/computer_show.php?id=$id'><div class='cart_img'></div></a></td><td>". $computer->getName() . "</td><td>". $computer->getStock() . "</td><td>". $computer->getPrice() . "</td><td>". $computer->getDiscount() . "%</td><td>". $computer->getPriceAfterDiscount() . "</td><td><a href='?delete=$id'>Delete from cart</a></td></tr>";
-                        
-                     } ?>
-
-                   
-
-                </table>
-
-                <?php }else{
-                            echo "Cart is empty<br>";
-                        }
-                    
-                    echo "TOTAL PRICE = " . $total . " $<br><br>";
-                    echo "<a href='?deleteall=true'>Delete all elements in the cart</a>";
-
-                    
+                <p style="width: 50%; left:20%; position:relative;">
+                <?php 
+                $sql = "SELECT * FROM text WHERE text_name='aboutus'";
+                $result = $DBconn->query($sql);
+                $row = mysqli_fetch_assoc($result);
+                echo $row['text_content'];
                 ?>
-                <br>
-
-                <a href="./sale.php">BUY</a>
+                </div>
+                </p>
+                
 
             </article>
+
+            
+
+            
 
             
 
@@ -178,22 +140,7 @@ $total = 0;
                 <p>All rights reserved</p>
 
             </footer>
-
-            <?php //delete and delete all operations
-            if(isset($_GET['deleteall'])){
-    
-                cart_delete_all();
-            }
             
-            if(isset($_GET['delete'])){
-                $id = $_GET['delete'];
-                cart_delete($id);
-                
-            }
-            
-            ?>
-            
-
 
         </div>
         <script src="../js/main.js" type="text/javascript"></script>

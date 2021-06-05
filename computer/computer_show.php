@@ -47,17 +47,39 @@ $cart = 0;
                     <a href="../index.php"><img id="logoimage" src="../images/logos/ekici-logo.png" alt="Logo"></a>
                 </div>
 
-                <div id="slogan">SLOGAN</div>
+                <div id="slogan">
+                <?php 
+                $sql = "SELECT * FROM text WHERE text_name='slogan'";
+                $result = $DBconn->query($sql);
+                $row = mysqli_fetch_assoc($result);
+                echo $row['text_content'];
+                ?>
+                </div>
                 
                 <!--social media icons-->
                 <div class="socialMedia">
-                    <a href="https://www.facebook.com" target="_blank"><img class="mediaicon" src="../images/icons/facebook.png" alt=""></a>
+                    <a href="<?php 
+                        $sql = "SELECT * FROM text WHERE text_name='facebook'";
+                        $result = $DBconn->query($sql);
+                        $row = mysqli_fetch_assoc($result);
+                        echo $row['text_content'];
+                        ?>" target="_blank"><img class="mediaicon" src="../images/icons/facebook.png" alt=""></a>
                 </div>
                 <div class="socialMedia">
-                    <a href="https://www.twitter.com" target="_blank"><img class="mediaicon" src="../images/icons/twitter.png" alt=""></a>
+                    <a href="<?php 
+                $sql = "SELECT * FROM text WHERE text_name='twitter'";
+                $result = $DBconn->query($sql);
+                $row = mysqli_fetch_assoc($result);
+                echo $row['text_content'];
+                ?>" target="_blank"><img class="mediaicon" src="../images/icons/twitter.png" alt=""></a>
                 </div>
                 <div class="socialMedia">
-                    <a href="https://www.instagram.com" target="_blank"><img class="mediaicon" src="../images/icons/instagram.png" alt=""></a>
+                    <a href="<?php 
+                $sql = "SELECT * FROM text WHERE text_name='instagram'";
+                $result = $DBconn->query($sql);
+                $row = mysqli_fetch_assoc($result);
+                echo $row['text_content'];
+                ?>" target="_blank"><img class="mediaicon" src="../images/icons/instagram.png" alt=""></a>
                 </div>
                 
                 

@@ -23,12 +23,12 @@ include_once("sessionAdmin.php");
         <tr><th class="process_header">Processes</th></tr>
         
         <tr><td><a href="../computer/computer_menu.php">Computer Menu</a></td></tr>
-        <tr><td><a href="#">Edit Buying Guide</a></td></tr>
-        <tr><td><a href="#">Edit Facebook</a></td></tr>
-        <tr><td><a href="#">Edit Twitter</a></td></tr>
-        <tr><td><a href="#">Edit Instagram</a></td></tr>
-        <tr><td><a href="#">Edit Slogan</a></td></tr>
-        <tr><td><a href="#">Edit About Us</a></td></tr>
+        <tr><td><a href="../text/text_edit.php?text=guide">Edit Buying Guide</a></td></tr>
+        <tr><td><a href="../text/text_edit.php?text=facebook">Edit Facebook</a></td></tr>
+        <tr><td><a href="../text/text_edit.php?text=twitter">Edit Twitter</a></td></tr>
+        <tr><td><a href="../text/text_edit.php?text=instagram">Edit Instagram</a></td></tr>
+        <tr><td><a href="../text/text_edit.php?text=slogan">Edit Slogan</a></td></tr>
+        <tr><td><a href="../text/text_edit.php?text=aboutus">Edit About Us</a></td></tr>
         <tr><td><a href="../sale/edit_sale_stat.php">Edit Order Status</a></td></tr>
         
         <tr><td><a style="background-color: red;" href="safeExitAdmin.php">Safe Exit</a></td></tr>

@@ -8,10 +8,6 @@ include_once("../computer/computerManager.php");
 include_once("../sale/cart_functions.php");
 
 
-
-
-
-$total = 0;    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,39 +43,17 @@ $total = 0;
                     <a href="../index.php"><img id="logoimage" src="../images/logos/ekici-logo.png" alt="Logo"></a>
                 </div>
 
-                <div id="slogan">
-                <?php 
-                $sql = "SELECT * FROM text WHERE text_name='slogan'";
-                $result = $DBconn->query($sql);
-                $row = mysqli_fetch_assoc($result);
-                echo $row['text_content'];
-                ?>
-                </div>
+                <div id="slogan">SLOGAN</div>
                 
                 <!--social media icons-->
                 <div class="socialMedia">
-                    <a href="<?php 
-                        $sql = "SELECT * FROM text WHERE text_name='facebook'";
-                        $result = $DBconn->query($sql);
-                        $row = mysqli_fetch_assoc($result);
-                        echo $row['text_content'];
-                        ?>" target="_blank"><img class="mediaicon" src="../images/icons/facebook.png" alt=""></a>
+                    <a href="https://www.facebook.com" target="_blank"><img class="mediaicon" src="../images/icons/facebook.png" alt=""></a>
                 </div>
                 <div class="socialMedia">
-                    <a href="<?php 
-                $sql = "SELECT * FROM text WHERE text_name='twitter'";
-                $result = $DBconn->query($sql);
-                $row = mysqli_fetch_assoc($result);
-                echo $row['text_content'];
-                ?>" target="_blank"><img class="mediaicon" src="../images/icons/twitter.png" alt=""></a>
+                    <a href="https://www.twitter.com" target="_blank"><img class="mediaicon" src="../images/icons/twitter.png" alt=""></a>
                 </div>
                 <div class="socialMedia">
-                    <a href="<?php 
-                $sql = "SELECT * FROM text WHERE text_name='../instagram'";
-                $result = $DBconn->query($sql);
-                $row = mysqli_fetch_assoc($result);
-                echo $row['text_content'];
-                ?>" target="_blank"><img class="mediaicon" src="images/icons/instagram.png" alt=""></a>
+                    <a href="https://www.instagram.com" target="_blank"><img class="mediaicon" src="../images/icons/instagram.png" alt=""></a>
                 </div>
                 
                 
@@ -128,43 +102,39 @@ $total = 0;
             </nav>
             
             <article id="content" style="width: 99%;">
-                
-                <?php if(isset($_COOKIE['computer'])){//if computer cookie exists ?>
-
-                <table id="cart_table">
-                    <tr><th>Image</th><th>Name</th><th>Stock</th><th>Price</th><th>Discount</th><th>Final Price</th><th>Delete From Cart</th></tr>
-
-                    <?php
+            <?php
+                    $sql = "SELECT * FROM computer ORDER BY computer_id DESC LIMIT 0, 8";
+                    $result = $DBconn->query($sql);
                     $computer = new Computer();
                     $computerService = new ComputerManager();
-                    foreach($_COOKIE['computer'] as $id){
-                        $sql = "SELECT * FROM computer C WHERE C.computer_id = '$id'";
-                        $result = $DBconn->query($sql);
-                        $row = mysqli_fetch_assoc($result);
-                        $id = $row['computer_id'];
+                    while($row = mysqli_fetch_assoc($result)){
                         $computerService->connectionWithDBorForm($computer, $row);
-                        $total += $computer->getPriceAfterDiscount();
-                
-                        echo "<tr><td><a href='../computer/computer_show.php?id=$id'><div class='cart_img'></div></a></td><td>". $computer->getName() . "</td><td>". $computer->getStock() . "</td><td>". $computer->getPrice() . "</td><td>". $computer->getDiscount() . "%</td><td>". $computer->getPriceAfterDiscount() . "</td><td><a href='?delete=$id'>Delete from cart</a></td></tr>";
-                        
-                     } ?>
-
-                   
-
-                </table>
-
-                <?php }else{
-                            echo "Cart is empty<br>";
-                        }
-                    
-                    echo "TOTAL PRICE = " . $total . " $<br><br>";
-                    echo "<a href='?deleteall=true'>Delete all elements in the cart</a>";
-
-                    
                 ?>
-                <br>
+                
+                <!-- computer card -->
+                <div class="computer">
+                    <div class="computer_img"></div>
+                    <div class="computer_info">
+                        <ul id="computer-list">
+                            <li><?php echo $row['name'] ?></li>
+                            <li><?php echo $row['stock'] ?> in stock</li>
+                            <li><?php echo $row['rate'] ?> rate</li>
+                            <li><?php echo $row['cpu'] ?></li>
+                            <li><?php echo $row['gpu'] ?></li>
+                            <li><?php echo $row['ram'] ?></li>
+                            <li><?php echo $row['storage'] ?></li>
+                            <li class="price"><?php echo $row['price'] ?></li>
+                            <li class="discount"><?php echo $row['discount'] ?>%</li>
+                            <li><?php echo $computer->getPriceAfterDiscount(); ?></li>
+                            <a href="?add=<?php echo $row['computer_id']; ?>">Add to Cart</a> | 
+                            <a href="./computer/computer_show.php?id=<?php echo $row['computer_id']; ?>">More Detail</a>
+                            
 
-                <a href="./sale.php">BUY</a>
+
+                        </ul>
+                    </div>
+                </div>
+                <?php } ?>
 
             </article>
 
