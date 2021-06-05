@@ -109,9 +109,12 @@ $sql = "CREATE TABLE IF NOT EXISTS sale(
     user_id INTEGER,
     price FLOAT,
     state VARCHAR(50),
+    address_id INTEGER,
 
     PRIMARY KEY(sale_id),
-    FOREIGN KEY(user_id) REFERENCES user(user_id)
+    FOREIGN KEY(user_id) REFERENCES user(user_id),
+    FOREIGN KEY(address_id) REFERENCES address(address_id)
+
 )";
 
 if(!$DBconn->query($sql) === TRUE){

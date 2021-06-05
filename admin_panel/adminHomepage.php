@@ -32,7 +32,7 @@ include_once("sessionAdmin.php");
         <tr><td><a href="#">Edit Instagram</a></td></tr>
         <tr><td><a href="#">Edit Slogan</a></td></tr>
         <tr><td><a href="#">Edit About Us</a></td></tr>
-        <tr><td><a href="#">Edit Sale Status</a></td></tr>
+        <tr><td><a href="../sale/edit_sale_stat.php">Edit Order Status</a></td></tr>
         <tr><td><a href="#">Delete Product</a></td></tr>
         <tr><td><a style="background-color: red;" href="safeExitAdmin.php">Safe Exit</a></td></tr>
 
