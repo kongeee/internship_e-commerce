@@ -22,10 +22,7 @@ include_once("sessionAdmin.php");
     <table id="adminProcessTable">
         <tr><th class="process_header">Processes</th></tr>
         
-        <tr><td><a href="../computer/computer_menu.php">Create New Computer</a></td></tr>
-        <tr><td><a href="#">Create New Discount</a></td></tr>
-        <tr><td><a href="#">Create New Admin</a></td></tr>
-        <tr><td><a href="#">Edit Computer</a></td></tr>
+        <tr><td><a href="../computer/computer_menu.php">Computer Menu</a></td></tr>
         <tr><td><a href="#">Edit Buying Guide</a></td></tr>
         <tr><td><a href="#">Edit Facebook</a></td></tr>
         <tr><td><a href="#">Edit Twitter</a></td></tr>
@@ -33,7 +30,7 @@ include_once("sessionAdmin.php");
         <tr><td><a href="#">Edit Slogan</a></td></tr>
         <tr><td><a href="#">Edit About Us</a></td></tr>
         <tr><td><a href="../sale/edit_sale_stat.php">Edit Order Status</a></td></tr>
-        <tr><td><a href="#">Delete Product</a></td></tr>
+        
         <tr><td><a style="background-color: red;" href="safeExitAdmin.php">Safe Exit</a></td></tr>
 
     </table>

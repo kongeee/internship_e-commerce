@@ -78,5 +78,29 @@ function cart_delete_all(){
 
 }
 
+function buy_cart(){//Same as cart_delete_all but the number of products is not increased
+
+    global $DBconn, $computer, $computerService, $serverName;
+
+    foreach($_COOKIE['computer'] as $id){
+        $sql = "SELECT * FROM computer WHERE computer_id=$id";
+        $result = $DBconn->query($sql);
+        $row = mysqli_fetch_assoc($result);
+
+        $computerService->connectionWithDBorForm($computer, $row);
+        
+
+        $newStock = $computer->getStock();
+        $sql = "UPDATE computer SET stock=$newStock WHERE computer_id=$id";
+        $DBconn->query($sql);
+
+
+        setcookie('computer['.$id.']', "", time() - 3600, "/", $serverName);
+        
+    }
+    header('Location:'.$_SERVER['HTTP_REFERER']);
+
+}
+
 
 ?>

@@ -12,6 +12,8 @@ $id = $_GET['id'];
 
 $sql = "SELECT * FROM computer C WHERE C.computer_id = '$id'";
 $result = $DBconn->query($sql);
+
+if($result->num_rows > 0){
 $row = mysqli_fetch_assoc($result);
 
 $computer = new Computer();
@@ -19,7 +21,11 @@ $computerService = new ComputerManager();
 
 
 $computerService->connectionWithDBorForm($computer, $row);
-
+}
+else{
+    echo "Computer not FOUND";
+    header("Refresh: 3; url=./computer_menu.php");
+}
 
 
 if(!$_POST){

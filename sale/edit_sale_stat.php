@@ -23,7 +23,7 @@ include_once("../admin_panel/sessionAdmin.php");
         
 </head>
 <body>
-    <?php if(isset($_GET)){ ?>
+    <?php if(!isset($_GET['sale_id']) && !isset($_GET['stat'])){ ?>
     <table id="sale_edit_table">
         <tr><th>Sale ID</th><th>User</th><th>Computers</th><th>Price</th><th>Address</th><th>State</th><th>Edit State</th></tr>
         <?php
@@ -42,7 +42,31 @@ include_once("../admin_panel/sessionAdmin.php");
     }
     else{
 
+        $sale_id = $_GET['sale_id'];
 
+        if(isset($_GET['stat'])){
+            $stat = $_GET['stat'];
+
+            $sql = "UPDATE sale SET state='$stat' WHERE sale_id='$sale_id'";
+            $DBconn->query($sql);
+
+            header("Location:./edit_sale_stat.php");
+
+        }
+        else{
+        ?>
+            <form action="" method="GET">
+                <input name="sale_id" type="hidden" value="<?php echo $sale_id; ?>">
+                <select name="stat" id="">
+                    <option value="preparing">preparing</option>
+                    <option value="cargo">cargo</option>
+                    <option value="delivered">delivered</option>
+                </select>
+
+                <input type="submit" value="Edit">
+            </form>
+            
+        <?php }
 
     }
     

@@ -178,10 +178,11 @@ ul#menu-list{
 #content2{
     
     border-style: solid;
-    background-color: rebeccapurple;
-    height: 100px;
+    background-color:thistle;
+    height: auto;
     width: 24%;
     float: right;
+    
 }
 
 .computer_img{

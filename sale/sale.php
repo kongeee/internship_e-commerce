@@ -6,6 +6,7 @@ include_once("../user/user_cookie.php");
 include_once("../computer/computer.php");
 include_once("../computer/computerService.php");
 include_once("../computer/computerManager.php");
+include_once("./cart_functions.php");
 
 ?>
 
@@ -55,6 +56,8 @@ if(isset($_GET['sale'])){
     $sql = "INSERT INTO sale (computers, user_id, price, state, address_id) VALUES ('$computers', '$user_id', '$total', 'preparing', '$address_id')";
     if($DBconn->query($sql) === TRUE){
         echo "sale confirmed";
+        buy_cart();
+
     }
     else{
         echo "sale ERROR!";

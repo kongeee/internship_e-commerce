@@ -70,8 +70,7 @@ $cart = 0;
                     <li class="menu-element"><a class="menu-link" href="#">About Us</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Best Computers</a></li>
                     <li class="menu-element"><a class="menu-link" href="#">Compare Computers</a></li>
-                    <li class="menu-element"><a class="menu-link" href="#">Gaming</a></li>
-                    <li class="menu-element"><a class="menu-link" href="#">Normal</a></li>
+                 
                     
                     <?php 
                     if(isset($_COOKIE['user'])){//if user is logged in
