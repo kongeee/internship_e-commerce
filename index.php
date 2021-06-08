@@ -183,7 +183,7 @@ $cart = 0;
                     }
 
 
-                    $sql = "SELECT * FROM computer ORDER BY $order $ascORdesc LIMIT 0, 9";
+                    $sql = "SELECT * FROM computer ORDER BY $order $ascORdesc LIMIT $start, $finish";
                     $result = $DBconn->query($sql);
                     $computer = new Computer();
                     $computerService = new ComputerManager();
