@@ -199,8 +199,9 @@ $cart = 0;
                             $sql2 = "SELECT * FROM image WHERE computer_id='$computer_id'";
                             $result2 = $DBconn->query($sql2);
                             $row2 = mysqli_fetch_assoc($result2);
+                            
                         ?>
-                    <div class="computer_img"><img src="<?php echo $row2['path'] ?>" alt="computer_img"></div>
+                    <div class="computer_img"><img src="<?php echo "." . $row2['path'] ?>" alt="computer_img" width="100" height="100"></div>
                     <div class="computer_info">
                         <ul id="computer-list">
                             <li><?php echo $row['name'] ?></li>
