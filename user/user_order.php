@@ -53,15 +53,35 @@ if(!isset($_GET['cancel'])){
     <?php }
         else{   
             $sale_id = $_GET['cancel'];
+            $sql = "SELECT * FROM sale WHERE sale_id='$sale_id'";
+            $result = $DBconn->query($sql);
+        
+            $row = mysqli_fetch_assoc($result);
+            $cmptrs = explode(",", $row['computers']);
             $sql = "DELETE FROM sale WHERE sale_id='$sale_id'";
             if($DBconn->query($sql) === TRUE){
                 echo "Cancel";
-            }
+                
+                
+                foreach($cmptrs as $cmptr){
+
+                    $sql2 = "SELECT * FROM computer WHERE computer_id='$cmptr'";
+                    $result2 = $DBconn->query($sql2);
+                    $row2 = mysqli_fetch_assoc($result2);
+                    
+                    $stock = $row2['stock']+1;
+                    
+                    $sql = "UPDATE computer SET stock='$stock' WHERE computer_id='$cmptr'";
+                    $DBconn->query($sql);
+                }
+
+             }
+            
             else{
                 echo "Cancel ERROR!";
             }
-
         }
+        
     ?>
     
 </body>

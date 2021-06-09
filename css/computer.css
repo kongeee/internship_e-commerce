@@ -121,3 +121,32 @@
 }
 
 
+
+/*COMPARE*/
+
+
+#compare{
+    border: solid 2px black;
+    background-color: red;
+
+}
+
+#compare_result{
+    position: absolute;
+    height: 100px;
+    width: 350px;
+    display: block;
+    margin-left: 50%;
+    margin-top: 10%;
+    
+    
+}
+
+.compare_text{
+
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:cornsilk;
+
+}
+
+

@@ -129,7 +129,8 @@ include_once("../sale/cart_functions.php");
                     <?php if(!isset($_GET['computer1'])){ ?>
                     <center>
                     <form action="" method="GET">
-                        <select name="computer1" id="">
+                        <input name="computer1" list="computer1" required>
+                        <datalist name="computer1" id="computer1">
 
                             <?php
                             
@@ -140,8 +141,9 @@ include_once("../sale/cart_functions.php");
                             
                                 echo "<option value='$name'>$name</option>";
                             }?>
-                        </select>
-                        <select name="computer2" id="">
+                        </datalist>
+                        <input name="computer2" list="computer2" required>
+                        <datalist name="computer2" id="computer2">
 
                             <?php
                             
@@ -152,12 +154,12 @@ include_once("../sale/cart_functions.php");
                             
                                 echo "<option value='$name'>$name</option>";
                             }?>
-                        </select>
+                        </datalist>
                             <br>
                         <input type="submit" value="Compare">
                     </form>
                     </center>
-                    
+                <div id="compare">
                 <?php }
                     else{
                     $computer1 = $_GET['computer1'];
@@ -171,7 +173,7 @@ include_once("../sale/cart_functions.php");
 
                 
                 ?>
-                  <div class="computer" style="left:350px; position:relative;">
+                  <div class="computer">
                     <div class="computer_img"></div>
                     <div class="computer_info">
                         <ul id="computer-list">
@@ -203,7 +205,7 @@ include_once("../sale/cart_functions.php");
                 
                 
                 ?>
-                <div class="computer" style="left:350px; position:relative;">
+                <div class="computer">
                     <div class="computer_img"></div>
                     <div class="computer_info">
                         <ul id="computer-list">
@@ -225,15 +227,17 @@ include_once("../sale/cart_functions.php");
                         </ul>
                     </div>
                 </div>
+                </div>
 
                 <div id="compare_result">
                     
-                    <?php echo $cpu1>$cpu2 ? $computer1 : $computer2;
-                    echo " has better CPU performance : " . comparePerformance($cpu1, $cpu2) . "<br>";
+                    <p class="compare_text"><?php echo $cpu1>$cpu2 ? $computer1 : $computer2;
+                    echo " has better CPU performance : " . comparePerformance($cpu1, $cpu2) . "<br></p><p class='compare_text'>";
                     
                     echo $gpu1>$gpu2 ? $computer1 : $computer2;
                     echo " has better GPU performance : " . comparePerformance($gpu1, $gpu2);
                     ?>
+                    </p>
 
 
                 </div>

@@ -91,7 +91,7 @@ $cart = 0;
                     <li class="menu-element"><a class="menu-link" href="index.php">Home</a></li>
                     <li class="menu-element"><a class="menu-link" href="./text/about_us.php">About Us</a></li>
                     <li class="menu-element"><a class="menu-link" href="./computer/computer_deals.php">New Computers</a></li>
-                    <li class="menu-element"><a class="menu-link" href="#">Compare Computers</a></li>
+                    <li class="menu-element"><a class="menu-link" href="./compare/compare.php">Compare Computers</a></li>
                     
                  
                     
@@ -128,7 +128,7 @@ $cart = 0;
                         <option value="gaming">Gaming First</option>
                         <option value="discount">Highest Discount</option>
                         </select></li>
-                        <input type="submit" value="Order" style="position: relative; right:90px; top:30px; float:left">
+                        <input type="submit" value="Order" style="position: relative; right:90px; top:49px; float:left">
                     </form>
                     
                    
@@ -193,7 +193,14 @@ $cart = 0;
                 
                 <!-- computer card -->
                 <div class="computer">
-                    <div class="computer_img"></div>
+
+                        <?php 
+                            $computer_id = $computer->getID();
+                            $sql2 = "SELECT * FROM image WHERE computer_id='$computer_id'";
+                            $result2 = $DBconn->query($sql2);
+                            $row2 = mysqli_fetch_assoc($result2);
+                        ?>
+                    <div class="computer_img"><img src="<?php echo $row2['path'] ?>" alt="computer_img"></div>
                     <div class="computer_info">
                         <ul id="computer-list">
                             <li><?php echo $row['name'] ?></li>

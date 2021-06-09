@@ -97,9 +97,15 @@ if(!$_POST){
                 <tr>
                     <td>Description</td><td><textarea name="description" cols="20" rows="20"><?php echo $row['description']; ?></textarea></td>
                 </tr>
+
                 <tr>
-                    <td><input type="submit" value="Edit it"></td> <td>Delete it <a href="./computer_delete.php?id=<?php echo $id ?>"><img src="../images/icons/remove.png" alt="" height="20px" width="20px"></a></td>
+                <td>Delete it <a href="./computer_delete.php?id=<?php echo $id ?>"><img src="../images/icons/remove.png" alt="" height="20px" width="20px"></a></td> <td><a href="./computer_add_img.php?id=<?php echo $id; ?>">Add image</a></td>
                 </tr>
+
+                <tr>
+                    <td colspan="2"><input type="submit" value="Edit it"></td> 
+                </tr>
+                
                 
             </table>
         </form>
