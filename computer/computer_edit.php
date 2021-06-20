@@ -99,7 +99,11 @@ if(!$_POST){
                 </tr>
 
                 <tr>
-                <td>Delete it <a href="./computer_delete.php?id=<?php echo $id ?>"><img src="../images/icons/remove.png" alt="" height="20px" width="20px"></a></td> <td><a href="./computer_add_img.php?id=<?php echo $id; ?>">Add image</a></td>
+                <td colspan="2">Delete it <a href="./computer_delete.php?id=<?php echo $id ?>"><img src="../images/icons/remove.png" alt="" height="20px" width="20px"></a></td>
+                </tr>
+                
+                <tr> <td><a href="./computer_add_img.php?id=<?php echo $id; ?>">Add image</a></td> 
+                     <td><a href="./computer_delete_img.php?id=<?php echo $id; ?>">Delete image</a></td>
                 </tr>
 
                 <tr>

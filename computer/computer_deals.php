@@ -131,11 +131,12 @@ include_once("../sale/cart_functions.php");
                     $computerService = new ComputerManager();
                     while($row = mysqli_fetch_assoc($result)){
                         $computerService->connectionWithDBorForm($computer, $row);
+                        $img_paths = $computerService->getImages($computer->getID());
                 ?>
                 
                 <!-- computer card -->
                 <div class="computer">
-                    <div class="computer_img"></div>
+                <div class="computer_img"><img src="..<?php echo $img_paths[0] ?>" alt="computer_img" width="100" height="100"></div>
                     <div class="computer_info">
                         <ul id="computer-list">
                             <li><?php echo $row['name'] ?></li>

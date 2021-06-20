@@ -43,9 +43,10 @@ class ComputerManager implements ComputerService{
 
     public function delete($id){
         global $DBconn;
-
+        $this->deleteAllImages($id);
         $sql = "DELETE FROM computer WHERE computer_id='$id'";
-
+        
+        
         if($DBconn->query($sql) === TRUE){
             
             return "Delete Successfully";
@@ -122,6 +123,37 @@ class ComputerManager implements ComputerService{
 
         return false;
 
+        
+    }
+
+    public function getImages($id){
+        global $DBconn;
+        $sql2 = "SELECT * FROM image WHERE computer_id='$id'";
+        $result2 = $DBconn->query($sql2);
+        $paths = array();
+        while($row2 = mysqli_fetch_assoc($result2)){
+            array_push($paths, $row2['path']);
+        }
+
+        return $paths;
+        
+    }
+
+    public function deleteAllImages($id){
+
+        global $DBconn;
+
+        $sql = "SELECT * FROM image WHERE computer_id='$id'";
+        $result = $DBconn->query($sql);
+        while($row = mysqli_fetch_assoc($result)){
+
+            $path = $row['path'];
+            $img_id = $row['img_id'];
+            unlink("..".$path);
+            $sql2 = "DELETE FROM image WHERE img_id='$img_id'";
+            $DBconn->query($sql2);
+
+        }
         
     }
 }

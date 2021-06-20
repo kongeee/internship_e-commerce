@@ -124,11 +124,12 @@ $cart = 0;
                     while($row = mysqli_fetch_assoc($result)){
                         $computerService->connectionWithDBorForm($computer, $row);
                         if(preg_match($pattern, $computer->getName())){
+                            $img_paths = $computerService->getImages($computer->getID());
                 ?>
                 
                 <!-- computer card -->
                 <div class="computer">
-                    <div class="computer_img"></div>
+                    <div class="computer_img"><img src="..<?php echo $img_paths[0]; ?>" alt="" height="100" width="100"></div>
                     <div class="computer_info">
                         <ul id="computer-list">
                             <li><?php echo $row['name'] ?></li>

@@ -162,6 +162,10 @@ include_once("../sale/cart_functions.php");
                 <div id="compare">
                 <?php }
                     else{
+                    $computerService = new ComputerManager();
+                    $computer1_obj = new Computer();
+                    $computer2_obj = new Computer();
+
                     $computer1 = $_GET['computer1'];
                     $computer2 = $_GET['computer2'];
 
@@ -171,10 +175,14 @@ include_once("../sale/cart_functions.php");
                     $cpu1 = $row['cpu_bench'];
                     $gpu1 = $row['gpu_bench'];
 
+                    $computerService->connectionWithDBorForm($computer1_obj, $row);
+                    $img1 = $computerService->getImages($row['computer_id']);
+
+
                 
                 ?>
                   <div class="computer">
-                    <div class="computer_img"></div>
+                  <div class="computer_img"><img src="..<?php echo $img1[0] ?>" alt="computer_img" width="100" height="100"></div>
                     <div class="computer_info">
                         <ul id="computer-list">
                             <li><?php echo $row['name'] ?></li>
@@ -186,7 +194,7 @@ include_once("../sale/cart_functions.php");
                             <li><?php echo $row['storage'] ?></li>
                             <li class="price"><?php echo $row['price'] ?></li>
                             <li class="discount"><?php echo $row['discount'] ?>%</li>
-                            <li><?php echo $computer->getPriceAfterDiscount(); ?></li>
+                            <li><?php echo $computer1_obj->getPriceAfterDiscount(); ?></li>
                             <a href="?add=<?php echo $row['computer_id']; ?>">Add to Cart</a> | 
                             <a href="../computer/computer_show.php?id=<?php echo $row['computer_id']; ?>">More Detail</a>
                             
@@ -202,11 +210,14 @@ include_once("../sale/cart_functions.php");
                     $row = mysqli_fetch_assoc($result);
                     $cpu2 = $row['cpu_bench'];
                     $gpu2 = $row['gpu_bench'];
+                    
+                    $computerService->connectionWithDBorForm($computer2_obj, $row);
+                    $img2 = $computerService->getImages($row['computer_id']);
                 
                 
                 ?>
                 <div class="computer">
-                    <div class="computer_img"></div>
+                <div class="computer_img"><img src="..<?php echo $img2[0] ?>" alt="computer_img" width="100" height="100"></div>
                     <div class="computer_info">
                         <ul id="computer-list">
                             <li><?php echo $row['name'] ?></li>
@@ -218,7 +229,7 @@ include_once("../sale/cart_functions.php");
                             <li><?php echo $row['storage'] ?></li>
                             <li class="price"><?php echo $row['price'] ?></li>
                             <li class="discount"><?php echo $row['discount'] ?>%</li>
-                            <li><?php echo $computer->getPriceAfterDiscount(); ?></li>
+                            <li><?php echo $computer2_obj->getPriceAfterDiscount(); ?></li>
                             <a href="?add=<?php echo $row['computer_id']; ?>">Add to Cart</a> | 
                             <a href="../computer/computer_show.php?id=<?php echo $row['computer_id']; ?>">More Detail</a>
                             

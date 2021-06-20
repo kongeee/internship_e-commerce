@@ -67,8 +67,8 @@ $sql = "CREATE TABLE IF NOT EXISTS comment(
     comment VARCHAR(255),
     rate INTEGER,
     PRIMARY KEY(comment_id),
-    FOREIGN KEY(user_id) REFERENCES user(user_id),
-    FOREIGN KEY(computer_id) REFERENCES computer(computer_id)
+    FOREIGN KEY(user_id) REFERENCES user(user_id) ON DELETE CASCADE,
+    FOREIGN KEY(computer_id) REFERENCES computer(computer_id) ON DELETE CASCADE
     )";
 
 if(!$DBconn->query($sql) === TRUE){
@@ -81,7 +81,7 @@ $sql = "CREATE TABLE IF NOT EXISTS address(
     location VARCHAR(255),
 
     PRIMARY KEY(address_id),
-    FOREIGN KEY(user_id) REFERENCES user(user_id)
+    FOREIGN KEY(user_id) REFERENCES user(user_id) ON DELETE CASCADE
     
 )";
 
@@ -112,8 +112,8 @@ $sql = "CREATE TABLE IF NOT EXISTS sale(
     address_id INTEGER,
 
     PRIMARY KEY(sale_id),
-    FOREIGN KEY(user_id) REFERENCES user(user_id),
-    FOREIGN KEY(address_id) REFERENCES address(address_id)
+    FOREIGN KEY(user_id) REFERENCES user(user_id) ON DELETE SET NULL,
+    FOREIGN KEY(address_id) REFERENCES address(address_id) ON DELETE SET NULL
 
 )";
 

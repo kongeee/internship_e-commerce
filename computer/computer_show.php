@@ -122,12 +122,13 @@ $cart = 0;
                     $computerService = new ComputerManager();
                     $row = mysqli_fetch_assoc($result);
                     $computerService->connectionWithDBorForm($computer, $row);
+                    $img_paths = $computerService->getImages($id);
 
                     
                 ?>
                 
                 <div id="show_computer">
-                    <div id="show_computer_img"></div>
+                    <div id="show_computer_img"><a href="..<?php echo $img_paths[0]; ?>"> <img src="..<?php echo $img_paths[0]; ?>" alt="computer_img" width="150" height="150"></a></div>
                     <div id="show_computer_info">
                         
                         <table id="show_computer_attributes">
@@ -163,54 +164,10 @@ $cart = 0;
                     <div id="images">
 
                         <ul>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
-                            <li class="image_element"></li>
+                            <?php foreach($img_paths as $path){ ?>
+                            <li class="image_element"><a href="..<?php echo $path; ?>"><img src="..<?php echo $path;  ?>" alt="" width="100" height="100"></a></li>
+                            <?php } ?>
+                            
                         </ul>
                     </div>
                 

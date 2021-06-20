@@ -142,10 +142,14 @@ $total = 0;
                         $result = $DBconn->query($sql);
                         $row = mysqli_fetch_assoc($result);
                         $id = $row['computer_id'];
+
+                        //img
+                        $img_paths = $computerService->getImages($id);
+
                         $computerService->connectionWithDBorForm($computer, $row);
                         $total += $computer->getPriceAfterDiscount();
                 
-                        echo "<tr><td><a href='../computer/computer_show.php?id=$id'><div class='cart_img'></div></a></td><td>". $computer->getName() . "</td><td>". $computer->getStock() . "</td><td>". $computer->getPrice() . "</td><td>". $computer->getDiscount() . "%</td><td>". $computer->getPriceAfterDiscount() . "</td><td><a href='?delete=$id'>Delete from cart</a></td></tr>";
+                        echo "<tr><td><a href='../computer/computer_show.php?id=$id'><img src='..$img_paths[0]' alt='computer_img' width='100' height='100'></a></td><td>". $computer->getName() . "</td><td>". $computer->getStock() . "</td><td>". $computer->getPrice() . "</td><td>". $computer->getDiscount() . "%</td><td>". $computer->getPriceAfterDiscount() . "</td><td><a href='?delete=$id'>Delete from cart</a></td></tr>";
                         
                      } ?>
 
