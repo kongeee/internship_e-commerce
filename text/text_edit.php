@@ -31,6 +31,7 @@ if(isset($_GET['text'])){
         
 </head>
 <body>
+    <center>
 
     <form action="" action="GET">
         <input type="hidden" name="text_id" value="<?php echo $row['text_id']; ?>">
@@ -39,7 +40,7 @@ if(isset($_GET['text'])){
         <input type="submit" value="Submit">
     </form>
 
-
+    </center>
     
 </body>
 </html>
