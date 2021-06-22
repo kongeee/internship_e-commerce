@@ -111,7 +111,7 @@ $cart = 0;
                 
             </nav>
             
-            <article id="content" style="width: 100%; height:auto;">
+            <article id="content" style="width: 100%; height:auto; min-height:510px;">
                 
                 <p style="width: 50%; left:20%; position:relative;">
                 <?php 

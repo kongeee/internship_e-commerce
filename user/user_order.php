@@ -23,9 +23,10 @@ if(!isset($_GET['cancel'])){
         <link rel="stylesheet" href="../css/user.css">
 </head>
 <body>
+    <center>
     
-    <table id="user_order_table">
-        <tr><th>Sale ID</th><th>Computers</th><th>Price</th><th>State</th><th>Cancel</th></tr>
+    <table id="user_order_table" border="1">
+        <tr class="text" ><th>Sale ID</th><th>Computers</th><th>Price</th><th>State</th><th>Cancel</th></tr>
         <?php   
         $user_id = $_GET['user_id'];
         
@@ -43,10 +44,10 @@ if(!isset($_GET['cancel'])){
            $computers = substr($computers, 0, -1);
         ?>
         
-        <tr><td><?php echo $row['sale_id']; ?></td><td><?php echo $computers; ?></td><td><?php echo $row['price']; ?></td><td><?php echo $row['state']; ?></td>
+        <tr class="table-text"><td><?php echo $row['sale_id']; ?></td><td><?php echo $computers; ?></td><td><?php echo $row['price']; ?></td><td><?php echo $row['state']; ?></td>
             <td><?php if($row['state'] == "preparing"){
                 $sale_id = $row['sale_id'];
-                echo "<a href='?cancel=$sale_id'>Cancel</a>"; } ?></td></tr>
+                echo "<a class='cancel' href='?cancel=$sale_id'>Cancel</a>"; } ?></td></tr>
 
         <?php } ?>
     </table>
@@ -60,7 +61,7 @@ if(!isset($_GET['cancel'])){
             $cmptrs = explode(",", $row['computers']);
             $sql = "DELETE FROM sale WHERE sale_id='$sale_id'";
             if($DBconn->query($sql) === TRUE){
-                echo "Cancel";
+                header("location:../state/confirm.php");
                 
                 
                 foreach($cmptrs as $cmptr){
@@ -83,6 +84,6 @@ if(!isset($_GET['cancel'])){
         }
         
     ?>
-    
+    </center>
 </body>
 </html>

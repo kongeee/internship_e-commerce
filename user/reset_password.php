@@ -35,19 +35,25 @@ if(!$_POST){
         <link rel="stylesheet" href="../css/user.css">
 </head>
 <body>
+
+    <center>
     
     <h2>Reset Password</h2>
 
    
     <form action="" method="POST">
+        <table>
+            <tr class="text"><td>New Password</td><td><input type="password" name="pass1"></td></tr>
+            <tr class="text"><td>New Password(Again)</td><td><input type="password" name="pass2"></td></tr>
+            <tr><td><input class="form_button" type="submit" value="Submit"></td><td><input class="form_button" type="reset" value="Reset"></td></tr>
+        </table>
         
-        New Password : <input type="password" name="pass1"> <br> 
-        New Password(Again) : <input type="password" name="pass2"> <br>
+  
        
-        <input type="submit" value="Submit"> <input type="reset" value="Reset">
+        
     </form>
 
-    
+    </center>
     
 </body>
 </html>

@@ -36,6 +36,8 @@ if(!$_POST){
         <link rel="stylesheet" href="../css/user.css">
 </head>
 <body>
+
+    <center>
     
     <h2>Edit</h2>
 
@@ -48,16 +50,22 @@ if(!$_POST){
     ?>
     
     <form action="" method="POST">
-        E mail :<input type="email" name="email" value=<?php echo $row['email']; ?>> <br>
-        First name : <input type="text" name="first_name" value=<?php echo $row['first_name']; ?>> <br>
-        Last name : <input type="text" name="last_name" value=<?php echo $row['last_name']; ?>> <br>
+        <table>
+            <tr><td class="text">E mail</td><td><input type="email" name="email" value=<?php echo $row['email']; ?>></td></tr>
+            <tr><td class="text">First name</td><td><input type="text" name="first_name" value=<?php echo $row['first_name']; ?>></td></tr>
+            <tr><td class="text">Last name</td><td><input type="text" name="last_name" value=<?php echo $row['last_name']; ?>></td></tr>
+            <tr><td><input class="form_button" type="submit" value="Submit"></td><td><input class="form_button" type="reset" value="Reset"></td></tr>
+        </table>
+        
+        
+      
        
-        <input type="submit" value="Submit"> <input type="reset" value="Reset">
+         
     </form>
 
-    <a href="./reset_password.php?user_id=<?php echo $user_id; ?>">Reset password</a>
+    <a class="user-link" href="./reset_password.php?user_id=<?php echo $user_id; ?>">Reset password</a>
 
-   
+    </center>
     
     
 </body>

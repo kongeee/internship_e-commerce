@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL ^ E_WARNING); 
+error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE); 
 
 include_once("../server.php"); 
 include_once("../computer/computer.php");
@@ -31,6 +31,8 @@ $total = 0;
         <!--CSS and JS connections-->
         <link rel="stylesheet" href="../css/style.css" type="text/css">
         <link rel="stylesheet" href="../css/computer.css" type="text/css">
+        <link rel="stylesheet" href="../css/sale.css" type="text/css">
+        
         
 
     </head>
@@ -75,11 +77,11 @@ $total = 0;
                 </div>
                 <div class="socialMedia">
                     <a href="<?php 
-                $sql = "SELECT * FROM text WHERE text_name='../instagram'";
+                $sql = "SELECT * FROM text WHERE text_name='instagram'";
                 $result = $DBconn->query($sql);
                 $row = mysqli_fetch_assoc($result);
                 echo $row['text_content'];
-                ?>" target="_blank"><img class="mediaicon" src="images/icons/instagram.png" alt=""></a>
+                ?>" target="_blank"><img class="mediaicon" src="../images/icons/instagram.png" alt=""></a>
                 </div>
                 
                 
@@ -127,7 +129,7 @@ $total = 0;
                 
             </nav>
             
-            <article id="content" style="width: 99%;">
+            <article id="content" style="width: 99%; min-height:500px;">
                 
                 <?php if(isset($_COOKIE['computer'])){//if computer cookie exists ?>
 
@@ -149,7 +151,7 @@ $total = 0;
                         $computerService->connectionWithDBorForm($computer, $row);
                         $total += $computer->getPriceAfterDiscount();
                 
-                        echo "<tr><td><a href='../computer/computer_show.php?id=$id'><img src='..$img_paths[0]' alt='computer_img' width='100' height='100'></a></td><td>". $computer->getName() . "</td><td>". $computer->getStock() . "</td><td>". $computer->getPrice() . "</td><td>". $computer->getDiscount() . "%</td><td>". $computer->getPriceAfterDiscount() . "</td><td><a href='?delete=$id'>Delete from cart</a></td></tr>";
+                        echo "<tr><td><a href='../computer/computer_show.php?id=$id'><img src='..$img_paths[0]' alt='computer_img' width='100' height='100'></a></td><td>". $computer->getName() . "</td><td>". $computer->getStock() . "</td><td>". $computer->getPrice() . "</td><td>". $computer->getDiscount() . "%</td><td>". $computer->getPriceAfterDiscount() . "</td><td><a class='delete_cart' href='?delete=$id'>Delete from cart</a></td></tr>";
                         
                      } ?>
 
@@ -162,13 +164,13 @@ $total = 0;
                         }
                     
                     echo "TOTAL PRICE = " . $total . " $<br><br>";
-                    echo "<a href='?deleteall=true'>Delete all elements in the cart</a>";
+                    echo "<a class='delete_cart' href='?deleteall=true'>Delete all elements in the cart</a>";
 
                     
                 ?>
                 <br>
 
-                <a href="./sale.php">BUY</a>
+                <a class="buy" href="./sale.php">BUY</a>
 
             </article>
 

@@ -2,14 +2,21 @@ body{
     background-color: #12232E;
 }
 
-.header2{
+h2{
 
-    color: rgb(178, 235, 93);
+    color: rgb(176, 218, 114);
 }
 
 .text{
 
     color: whitesmoke;
+    font-size: 24px;
+    
+}
+
+.table-text{
+    color: white;
+
 }
 
 .form_button{
@@ -26,9 +33,9 @@ body{
     border: solid white 1px;
     text-decoration: none;
     font-size: 20px;
-    color: red;
+    color: white;
     border-radius: 5px;
-    padding: 5px;
+    padding: 3px;
     position:relative;
     top: 10px;
     
@@ -36,6 +43,26 @@ body{
 }
 
 .user-link:hover{
-    background-color: red;
-    color: white;
+    background-color: white;
+    color: black;
 }
+
+#user_order_table tr th{
+    padding-left: 20px;
+}
+
+.cancel{
+
+    border: solid white 1px;
+    text-decoration: none;
+    font-size: 20px;
+    color: red;
+    border-radius: 5px;
+    
+
+}
+.cancel:hover{
+    color: white;
+    background-color: red;
+}
+

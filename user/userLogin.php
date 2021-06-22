@@ -18,18 +18,20 @@ if(!isset($_COOKIE['user'])){
         <link rel="stylesheet" href="../css/user.css">
 </head>
 <body>
-    
+    <center>
     <h2>Login</h2>
     
     <form action="user_check.php" method="POST">
-        E mail :<input type="email" name="email"> <br>
-        Password : <input type="password" name="password"> <br>
-        <input type="submit" value="Submit"> <input type="reset" value="Reset">
+        <table>
+       <tr> <td class="text">E mail</td><td><input type="email" name="email"></td> </tr>
+        <tr><td class="text">Password</td><td><input type="password" name="password"></td> </tr>
+        <tr><td><input class="form_button" type="submit" value="Submit"></td> <td><input class="form_button" type="reset" value="Reset"></td></tr>
+        </table>
     </form>
 
-    <a href="./userRegister.php">Register</a>
+    <a class="user-link" href="./userRegister.php">Register</a>
     
-    
+    </center>
 </body>
 </html>
 

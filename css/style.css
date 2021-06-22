@@ -51,6 +51,7 @@ body{
     float: left;
     left: 40%;
     top: 20px;
+    color: white;
      
 }
 
@@ -284,12 +285,12 @@ ul#pages_list{
 
 #footer a{
     text-decoration: none;
-    color: #23834c;
+    color: black;
     font-size: 16px;
     margin: 5px;
 }
 
 #footer a:hover{
-    color: #27ae60;
+    color: rgb(65, 53, 53);
 }
 

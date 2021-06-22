@@ -22,17 +22,21 @@ if(!$_POST){
         <link rel="stylesheet" href="../css/user.css">
 </head>
 <body>
+    <center>
     <h2>Register</h2>
 
     <form action="" method="POST">
-        E mail :<input type="email" name="email"> <br>
-        First name : <input type="text" name="first_name"> <br>
-        Last name : <input type="text" name="last_name"> <br>
-        Password : <input type="password" name="password"> <br>
-        <input type="submit" value="Submit"> <input type="reset" value="Reset">
+        <table>
+            <tr><td class="text">E mail</td><td><input type="email" name="email"></td></tr>
+            <tr><td class="text">First name</td><td><input type="text" name="first_name"></td></tr>
+            <tr><td class="text">Last name</td><td><input type="text" name="last_name"></td></tr>
+            <tr><td class="text">Password</td><td><input type="password" name="password"></td></tr>
+            <tr><td><input class="form_button" type="submit" value="Submit"></td><td><input class="form_button" type="reset" value="Reset"></td></tr>
+         
+        </table>
     </form>
     
-    
+    </center>
 </body>
 </html>
 

@@ -1,3 +1,7 @@
+body{
+    background-color: #acb8c0;
+}
+
 #sale_edit_table{
 
     border: solid 1px black;
@@ -10,4 +14,43 @@
     text-decoration: none;
     color: teal;
 
+}
+.edit:hover{
+    background-color: teal;
+    color: white;
+}
+
+#sale_edit_table tr td{
+    padding: 5px;
+    text-align: center;
+}
+
+/*IN CART OPERATIONS*/
+
+.delete_cart{
+    
+    color: red;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 20px;
+
+}
+
+.delete_cart:hover{
+    background-color: red;
+    color: white;
+}
+
+.buy{
+
+    color: rgb(133, 94, 43);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 24px;
+
+}
+
+.buy:hover{
+    color: white;
+    background-color: rgb(133, 94, 43);
 }

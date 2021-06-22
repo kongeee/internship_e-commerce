@@ -69,7 +69,7 @@ else{
     $sql = "SELECT * FROM address WHERE user_id='$user_id'";
     $result = $DBconn->query($sql);
 
-    echo "<h3>Select Address</h3>";
+    echo "<center><h3>Select Address</h3>";
     echo "<form action='' method='GET'><select name='address' id='address'>";
     while($row = mysqli_fetch_assoc($result)){
         $location = $row['location'];
@@ -80,6 +80,9 @@ else{
     echo "</select>";
 
     echo "<br><input type='submit' value='BUY'></form>";
+    echo "<a class='edit' href='../address/add_address.php?user_id=$user_id'>ADD address </a>";
+
+    echo "</center>";
     
     if(isset($_GET['address'])){
         header("Location:" . "?sale=true&address_id=" . $address_id);

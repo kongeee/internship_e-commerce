@@ -151,14 +151,14 @@ $cart = 0;
                     </div>
 
                     <div id="show_price">
-                        <div id="show_real_price">Real Price  : <?php echo $computer->getPrice(); ?></div>
-                        <div id="show_discount">Discount Rate :<?php echo $computer->getDiscount(); ?></div>
-                        <div id="show_price_after_discount">After Discount :<?php echo $computer->getPriceAfterDiscount(); ?></div>
+                        <div id="show_real_price">Real Price  : <?php echo $computer->getPrice(); ?>$</div>
+                        <div id="show_discount">Discount Rate :<?php echo $computer->getDiscount(); ?>%</div>
+                        <div id="show_price_after_discount">After Discount :<?php echo $computer->getPriceAfterDiscount(); ?>$</div>
                     </div>
 
                     <div id="description">
                         <p>Description :</p>
-                        <p style="display: inline;"><?php echo $computer->getDescription(); ?>kjgfduhsguıdfs hgfdhgdfhsg dfhsgdfshg dfhsgu hdfsg hdfsghudfsgıudfguh dfsgıhfs dghfdsıughd fsıughsd fıghdfsıughdfısh gdfsıhgıdfh gıdfsuhıuf hgıdfuhgıd    uhsguıdfsh  gfdhgdf hsgdfhsgdfshgdfhsg uhdfsghdfsghudfsgıudfg  uhdfsgıhfsdghfdsıughdfsıug hsdfıghdfsıu ghdfıshgdfsıhgıdfhgıdfsuh ıufhgıdfuhgıdfshgdfıushdfıusghdfsjg fduhsguıdfs hg fdhgdfhsgdfhsgdfshgdfhsguhdfsghdfsgh udfsgıudfguhdfsgıhfsdghfdsıughdfsıughsdfıghdfsıugh dfıshgdfsıhgıdfhgıdfsuhıufhgıdf uhgıd fshgdfıushdfıusghd  fsjgfduhsguıdfshgfdh gdf hsgdfhs gdfshg dfh s guhdfsgh dfsghudfsgıud fguhdfsgıhfsdghfdsıughdfsıughsdfıghdfsı ughdfıshgdfsıhgıdfhgıdfsuhıufhgı dfuhgıdfshgdfıushdfı usghdfsjgfduhsguıdfshgfdhgdfhsgdfhs gdfshgdfhsguhdfsg hdfsghudfsgıudfg u hdfsgıhfsdghfdsıughdfsıug hs dfıghdfsıu ghdfısh gdfsıhgıdfhg ıdfsuhıufh gıdf uhgı dfshgdfıushdfı usghdfsjgfd uhsguıdfshgf dh gdfhsgdfhsgdfshgdfhsguhdf sg hdfsghudfsgıudfguhdfsgıhfsdghfdsıughdfsıughsdfıghdf sıughdfıshgdf sıhgıdfhgıdfsuhıufhg ıdfuhgıdfshgdfıushdfıusghdfs</p>
+                        <p style="display: inline;"><?php echo $computer->getDescription(); ?></p>
                     </div>
                    
                     <div id="images">

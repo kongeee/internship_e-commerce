@@ -61,6 +61,8 @@ include_once("../admin_panel/sessionAdmin.php");
         }
         else{
         ?>
+            <center>
+            <h2>Change Order Stat</h2>
             <form action="" method="GET">
                 <input name="sale_id" type="hidden" value="<?php echo $sale_id; ?>">
                 <select name="stat" id="">
@@ -71,6 +73,7 @@ include_once("../admin_panel/sessionAdmin.php");
 
                 <input type="submit" value="Edit">
             </form>
+            </center>
             
         <?php }
 

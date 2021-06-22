@@ -33,10 +33,14 @@ class ComputerManager implements ComputerService{
                 header("location:../state/confirm.php");
                 
             }
+            else{
+                header("location:../state/reject.php");
+
+            }
             
         }
         
-        header("location:../state/reject.php");
+        
     }
 
 

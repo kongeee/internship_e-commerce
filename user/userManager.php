@@ -57,9 +57,10 @@ class UserManager implements UserService{
            
             header("location:../state/confirm.php");
         }
+        else{
 
         header("location:../state/reject.php");
-        
+        }
     }
     
     
@@ -69,8 +70,9 @@ class UserManager implements UserService{
         if($DBconn->query($sql) === TRUE){
             setcookie("user", $user_id, time()-3600, "/", $serverName);
             header("location:../state/confirm.php");
-        }
+        }else{
         header("location:../state/reject.php");
+        }
     }
     
     
