@@ -213,8 +213,8 @@ $cart = 0;
                             <li class="price"><?php echo $row['price'] ?>$</li>
                             <li class="discount"><?php echo $row['discount'] ?>%</li>
                             <li><?php echo $computer->getPriceAfterDiscount(); ?>$</li>
-                            <a href="?add=<?php echo $row['computer_id']; ?>">Add to Cart</a> | 
-                            <a href="./computer/computer_show.php?id=<?php echo $row['computer_id']; ?>">More Detail</a>
+                            <a class="index-link" href="?add=<?php echo $row['computer_id']; ?>">Add to Cart</a> | 
+                            <a class="index-link" href="./computer/computer_show.php?id=<?php echo $row['computer_id']; ?>">More Detail</a>
                             
 
 

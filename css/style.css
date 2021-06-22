@@ -216,6 +216,18 @@ ul#computer-list li{
 
 }
 
+.index-link{
+    color: #3e789e;
+    border-radius: 8px;
+    text-decoration: none;
+    padding:2px;
+}
+
+.index-link:hover{
+    color:white;
+    background-color: #3e789e;
+}
+
 /*PAGE*/
 
 #pages{
