@@ -11,7 +11,7 @@ $comment = $_POST['comment'];
 $sql = "INSERT INTO comment (computer_id, user_id, caption, rate, comment) VALUES ('$computer_id', '$user_id', '$caption', '$rate', '$comment')";
 
 if($DBconn->query($sql)){
-    echo "comment is done";
+    
 
     $totalRate = 0;
     $counter = 0;
@@ -26,10 +26,10 @@ if($DBconn->query($sql)){
 
     $sql = "UPDATE computer SET rate='$rateResult' WHERE computer_id = '$computer_id'";
     $DBconn->query($sql);
+    header("location:../state/confirm.php");
 }
 else{
-    echo "comment ERROR!!";
-
+    header("location:../state/reject.php");
 }
 
 ?>

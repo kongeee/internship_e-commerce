@@ -16,6 +16,7 @@
 </head>
 <body>
     
+<center>
     
     <h1>Computer Menu</h1>
     <h2>Edit</h2>
@@ -23,14 +24,14 @@
         
             
             Computer ID :<input name="id" type="text">
-            <input type="submit" value="Get it">
+            <input class="form_button" type="submit" value="Get it">
         
     </form>
         <h2>Add</h2>
-        <span id="add_text">Add a new computer</span>
+        <span id="add_text">Add a new computer</span> <br>
         <a href="./computer_add.php"><img id="add_img" src="../images/icons/add.png" alt="add.png" width="25" height="25"></a>
 
-    
+        </center>
     
     
 </body>

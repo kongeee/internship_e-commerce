@@ -142,7 +142,7 @@ $cart = 0;
                             <tr class="show_computer_table_element"><td>Ram</td><td><?php echo $computer->getRam(); ?></td></tr>
                             <tr class="show_computer_table_element"><td>Storage</td><td><?php echo $computer->getStorage(); ?></td></tr>
                             <tr class="show_computer_table_element"><td>Type</td><td><?php echo $computer->gettype(); ?></td></tr>
-                            <tr class="show_computer_table_element"><td colspan="2"><a href="?add=<?php echo $computer->getID(); ?>">Add to CART</a></td></tr>
+                            <tr class="show_computer_table_element "><td colspan="2"><a class="add-to-cart" href="?add=<?php echo $computer->getID(); ?>">Add to CART</a></td></tr>
                             
                            
                             
@@ -188,9 +188,9 @@ $cart = 0;
                 ?>
 
                 
-                
+                <center>
                 <div id="do_comment">
-                    <p style="color:red">You have to log in to comment</p>
+                    <p class="login-warning">You have to log in to comment</p>
                     <form action="../comment/comment.php" method="POST">
                         <table id="do_comment_table">
 
@@ -215,7 +215,7 @@ $cart = 0;
                     </form>
 
                 </div>
-
+                </center>
 
                 <div id="comments">
 

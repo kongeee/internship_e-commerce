@@ -37,7 +37,7 @@ include_once("../computer/computerManager.php");
                 ?>
                 <div class='delete_img_card'>
                     <img src="..<?php echo $path; ?>" alt="#" height="200" width="200"><br>
-                    <a href="./computer_delete_img.php?delete_complete=<?php echo $row['img_id'] ?>">Delete</a>
+                    <a class="computer-link link-red" href="./computer_delete_img.php?delete_complete=<?php echo $row['img_id'] ?>">Delete</a>
                 </div>
 
                 <?php
@@ -47,11 +47,11 @@ include_once("../computer/computerManager.php");
             $img_id = $_GET['delete_complete'];
             $sql = "DELETE FROM image WHERE img_id='$img_id'";
             if($result = $DBconn->query($sql) === TRUE){
-                echo "Delete successfully";
+                header("location:../state/confirm.php");
 
             }
             else{
-                echo "delete error";
+                header("location:../state/reject.php");
             }
             
 

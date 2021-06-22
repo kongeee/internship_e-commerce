@@ -25,19 +25,21 @@ if(!$_POST){
         <link rel="stylesheet" href="../css/user.css">
 </head>
 <body>
-    
-    <h2>Add Address</h2>
+    <center>
+    <h2 class="header2">Add Address</h2>
 
    
     <form action="" method="POST">
+
+        <table id="add_address_table">
+            <tr><td class="text">Location :</td><td><input type="text" name="location"></td></tr>
+            <tr style='text-align:center'><td colspan="2"><input class="form_button" type="submit" value="Submit"><input class="form_button" type="reset" value="Reset"></td></tr>
+
+        </table>
         
-        Location : <input type="text" name="location"> <br> 
-        
-       
-        <input type="submit" value="Submit"> <input type="reset" value="Reset">
     </form>
 
-    
+    </center>
     
 </body>
 </html>
@@ -48,14 +50,14 @@ else{
 
     $sql = "INSERT INTO address (user_id, location) VALUES ('$user_id', '$location')";
     if($DBconn->query($sql) === TRUE){
-        echo "Address added";
+        header("location:../state/confirm.php");
     }
     else{
-        echo "Address add ERROR!";
+        header("location:../state/reject.php");
     }
 
 
-    header("Refresh: 3 ; url=../user/user_menu.php?user_id=$user_id");
+    
 }  
 
 ?>

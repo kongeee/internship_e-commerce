@@ -30,30 +30,36 @@ if(!$_POST){
         <link rel="stylesheet" href="../css/user.css">
 </head>
 <body>
+
+    <center>
     
-    <h2>Edit Address</h2>
+    <h2 class="header2">Edit Address</h2>
 
    
     <form action="" method="POST">
-        
+        <table id="edit2_address_table">
             
         <input type="text" name="location" value="<?php echo $row['location'] ?>"> <br> 
         
        
-        <input type="submit" value="Submit"> <input type="reset" value="Reset">
+        <input class="form_button" type="submit" value="Submit"> <input class="form_button" type="reset" value="Reset">
+        </table>
     </form>
+
     
-    <a href="./delete_address.php?address_id=<?php echo $address_id ?>">Delete it</a>
+    
+    <a class="user-link" href="./delete_address.php?address_id=<?php echo $address_id ?>">Delete it</a>
+    </center>
 
     <?php }
     else{
         $location = $_POST['location'];
         $sql = "UPDATE address SET location='$location' WHERE address_id='$address_id'";
         if($DBconn->query($sql) === TRUE){
-            echo "Edit Successful";
+            header("location:../state/confirm.php");
         }
         else{
-            echo "Edit ERROR";
+            header("location:../state/reject.php");
         }
 
     

@@ -24,6 +24,7 @@ include_once("../admin_panel/sessionAdmin.php");
 </head>
 <body>
     <?php if(!isset($_GET['sale_id']) && !isset($_GET['stat'])){ ?>
+    <center>
     <table id="sale_edit_table">
         <tr><th>Sale ID</th><th>User</th><th>Computers</th><th>Price</th><th>Address</th><th>State</th><th>Edit State</th></tr>
         <?php
@@ -34,10 +35,10 @@ include_once("../admin_panel/sessionAdmin.php");
         ?>
 
 
-            <tr id="row"><td><?php echo $row['sale_id']; ?></td><td><?php echo $row['first_name'] . " " . $row['last_name']; ?></td><td><?php echo $row['computers']; ?></td><td><?php echo $row['price']; ?></td><td><?php echo $row['location']; ?></td><td class="state"><?php echo $row['state']; ?></td><td><a href="?sale_id=<?php echo $row['sale_id']; ?>">Edit</a></td></tr>
+            <tr id="row"><td><?php echo $row['sale_id']; ?></td><td><?php echo $row['first_name'] . " " . $row['last_name']; ?></td><td><?php echo $row['computers']; ?></td><td><?php echo $row['price']; ?></td><td><?php echo $row['location']; ?></td><td class="state"><?php echo $row['state']; ?></td><td><a class="edit" href="?sale_id=<?php echo $row['sale_id']; ?>">Edit</a></td></tr>
             <?php } ?>
     </table>
-
+    </center>
     <?php 
     }
     else{
@@ -48,9 +49,14 @@ include_once("../admin_panel/sessionAdmin.php");
             $stat = $_GET['stat'];
 
             $sql = "UPDATE sale SET state='$stat' WHERE sale_id='$sale_id'";
-            $DBconn->query($sql);
+            if($result = $DBconn->query($sql)){
+                header("location:../state/confirm.php");
+            }
+            else{
+                header("location:../state/reject.php");
+            }
 
-            header("Location:./edit_sale_stat.php");
+            
 
         }
         else{
@@ -73,11 +79,6 @@ include_once("../admin_panel/sessionAdmin.php");
     ?>
 
    
-<script>
-    if(document.getElementByClassName("state").value == "preparing"){
-        document.getElementById("row").style.backgroundColor = "red";
-    }
-</script>
     
 </body>
 </html>

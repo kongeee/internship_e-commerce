@@ -10,6 +10,6 @@ if(isset($_GET['user_id'])){
 
 }
 else{
-    echo "Error";
+    header("location:../state/reject.php");
 }
 ?>

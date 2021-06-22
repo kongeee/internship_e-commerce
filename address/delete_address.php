@@ -5,10 +5,10 @@ $address_id = $_GET['address_id'];
 
 $sql = "DELETE FROM address WHERE address_id='$address_id'";
 if($DBconn->query($sql) === TRUE){
-    echo "Delete success";
+    header("location:../state/confirm.php");
 }
 else{
-    echo "Delete ERROR!";
+    header("location:../state/reject.php");
 }
 
 

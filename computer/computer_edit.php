@@ -102,12 +102,12 @@ if(!$_POST){
                 <td colspan="2">Delete it <a href="./computer_delete.php?id=<?php echo $id ?>"><img src="../images/icons/remove.png" alt="" height="20px" width="20px"></a></td>
                 </tr>
                 
-                <tr> <td><a href="./computer_add_img.php?id=<?php echo $id; ?>">Add image</a></td> 
-                     <td><a href="./computer_delete_img.php?id=<?php echo $id; ?>">Delete image</a></td>
+                <tr> <td><a class="computer-link link-green" href="./computer_add_img.php?id=<?php echo $id; ?>">Add image</a></td> 
+                     <td><a class="computer-link link-red" href="./computer_delete_img.php?id=<?php echo $id; ?>">Delete image</a></td>
                 </tr>
-
-                <tr>
-                    <td colspan="2"><input type="submit" value="Edit it"></td> 
+                
+                <tr style="position: relative; top:20px; text-align:center;" >
+                    <td colspan="2"><input class="form_button" type="submit" value="Edit it"></td> 
                 </tr>
                 
                 

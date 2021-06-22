@@ -253,6 +253,22 @@ ul#pages_list{
     border-color: #ce1818;
 }
 
+/* CART */
+
+.add-to-cart{
+    border: 1px black solid;
+    border-radius: 7px;
+    font-size: 18px;
+    color: brown;
+    text-decoration: none;
+    padding: 2px;
+    
+}
+.add-to-cart:hover{
+    background-color: brown;
+    color: white;
+}
+
 
 /*FOOTER*/
 

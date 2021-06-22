@@ -93,7 +93,7 @@ include_once("../benchmarks/benchmark.php");
         $computerService = new ComputerManager();
         $computerService->connectionWithDBorForm($computer, $_POST);
         echo $computerService->add($computer);
-        header("Refresh: 2; url=../admin_panel/adminHomepage.php");
+        
 
         
     } ?>

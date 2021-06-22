@@ -30,13 +30,13 @@ class ComputerManager implements ComputerService{
             VALUES('$name', '$stock', '$cpu', '$cpu_bench', '$gpu', '$gpu_bench' , '$ram', '$storage', '$price', '$discount', '$type', '$description')";
 
             if($DBconn->query($sql) === TRUE){
-                return "Added successfully!!";
+                header("location:../state/confirm.php");
                 
             }
             
         }
         
-        return "Error this computer already exists in DB";
+        header("location:../state/reject.php");
     }
 
 
@@ -49,9 +49,11 @@ class ComputerManager implements ComputerService{
         
         if($DBconn->query($sql) === TRUE){
             
-            return "Delete Successfully";
+            header("location:../state/confirm.php");
         }
-        return "Delete Error";
+        else{
+            header("location:../state/reject.php");
+        }
     }
 
 
@@ -98,10 +100,12 @@ class ComputerManager implements ComputerService{
 
         $sql = "UPDATE computer SET name='$name', stock='$stock', cpu='$cpu[0]', cpu_bench='$cpu[1]', gpu='$gpu[0]', gpu_bench='$gpu[1]', ram='$ram', storage='$storage', price='$price', discount='$discount', type='$type', description='$description' WHERE computer_id='$id'";
         if($DBconn->query($sql) === TRUE || $this->nameCheck($name)){
-            return "Edit completed<br>";
+            header("location:../state/confirm.php");
         }
         
-        return "Edit NOT completed (There may already be a computer with this name)<br>";
+       else{
+        header("location:../state/reject.php");
+       }
         
     }
 

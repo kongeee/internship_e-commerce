@@ -59,7 +59,7 @@ else{
         echo $userService->resetPassword($user, $_POST['pass1']);
     }
     else{
-        echo "Match Error!!";
+        header("location:../state/reject.php");
     }
     header("Refresh: 3 ; url=user_edit.php?user_id=$user_id");
 }  

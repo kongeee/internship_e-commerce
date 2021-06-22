@@ -3,8 +3,12 @@ function searchSomething(){
 }
 
 
-document.getElementsByClassName("price").style.color = "red";
-document.getElementsByClassName("price").style.textDecoration = "line-through";
+let elements = document.querySelectorAll(".price");
+elements.forEach(function(element){
+    element.style.color = "red";
+    element.style.textDecoration = "line-through";
+});
+
 
 
     

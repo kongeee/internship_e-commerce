@@ -29,25 +29,29 @@ if(!$_POST){
         <link rel="stylesheet" href="../css/user.css">
 </head>
 <body>
-    
-    <h2>Edit Address</h2>
+    <center>
+    <h2 class="header2">Edit Address</h2>
 
+    
    
     <form action="" method="POST">
         
-        Locations: <select name="location" id="">
+        <table id="edit_address_table">
+            <tr><td class="text">Locations: </td> <td><select name="location" id="">
             <?php while($row = mysqli_fetch_assoc($result)){
                 $location = $row['location'];
                 echo "<option value='$location'>$location</option>";
             } ?>
             
-        </select> <br> 
+        </select></td></tr>
+        
         
        
-        <input type="submit" value="Submit"> <input type="reset" value="Reset">
+        <tr><td colspan="2"><input class="form_button" type="submit" value="Submit"> <input class="form_button" type="reset" value="Reset"></td></tr>
+        </table>
 
     </form>
-
+    </center>
     
 
     <?php }

@@ -1,0 +1,13 @@
+#sale_edit_table{
+
+    border: solid 1px black;
+}
+
+.edit{
+
+    border: solid 1px black;
+    border-radius: 5px;
+    text-decoration: none;
+    color: teal;
+
+}

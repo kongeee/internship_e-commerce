@@ -35,5 +35,5 @@ if(!isset($_COOKIE['user'])){
 
 <?php }else{
 
-    echo "Alreadey log in";
+    header("location:../state/reject.php");
 } ?>

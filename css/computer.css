@@ -5,7 +5,7 @@
     border-style: solid;
     position: relative;
     display: block;
-    background-color: darkkhaki;
+    background-color: #689bbd;
     width: 100%;
     height: auto;
 }
@@ -99,7 +99,7 @@
 
     
 
-    background-color: rgb(160, 173, 39);
+    background-color: rgb(39, 119, 173);
 }
 
 /*CART*/
@@ -160,5 +160,60 @@
     text-align: center;
     margin-left: 50px;
 
+}
+
+
+/* FORM CSS */
+
+body{
+    background-color: #acb8c0;
+}
+
+.login-warning{
+    color: black;
+    font-size: 20px;
+    text-decoration:underline red;
+
+}
+
+.form_button{
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 16px;
+}
+
+.form_button:hover{
+    background-color: greenyellow;
+}
+
+.computer-link{
+    border: solid white 1px;
+    text-decoration: none;
+    font-size: 20px;
+    
+    border-radius: 5px;
+    padding: 5px;
+    position:relative;
+    top: 10px;
+    
+    
+}
+
+.link-red{
+    color: red;
+}
+
+.link-red:hover{
+    background-color: red;
+    color: white;
+}
+
+.link-green{
+    color: green;
+}
+
+.link-green:hover{
+    background-color: green;
+    color: white;
 }
 

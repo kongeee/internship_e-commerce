@@ -78,7 +78,7 @@ if(!isset($_GET['cancel'])){
              }
             
             else{
-                echo "Cancel ERROR!";
+                header("location:../state/reject.php");
             }
         }
         

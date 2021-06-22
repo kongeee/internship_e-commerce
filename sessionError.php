@@ -6,6 +6,32 @@
         <meta http-equiv="Content-Language" content = "en"> 
         <meta charset="utf-8">
 
+        <style type="text/css">
+
+        body{
+           background-color: #12232E;
+        }
+
+        h2{
+            color:red;
+
+        }
+
+        p{
+            color: tomato;
+        }
+
+        p a{
+
+            color: indianred;
+        }
+
+        p a:hover{
+            color: green;
+        }
+
+        </style>
+
         
     </head>
 

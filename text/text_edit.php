@@ -52,10 +52,10 @@ else{
 
     $sql = "UPDATE text SET text_content='$content' WHERE text_id='$text_id'";
     if($DBconn->query($sql) === TRUE){
-        echo "Edit text";
+        header("location:../state/confirm.php");
     }
     else{
-        echo "text edit ERROR!!";
+        header("location:../state/reject.php");
     }
 }
 ?>

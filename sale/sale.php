@@ -55,12 +55,13 @@ if(isset($_GET['sale'])){
 
     $sql = "INSERT INTO sale (computers, user_id, price, state, address_id) VALUES ('$computers', '$user_id', '$total', 'preparing', '$address_id')";
     if($DBconn->query($sql) === TRUE){
-        echo "sale confirmed";
+        
         buy_cart();
+        header("location:../state/confirm.php");
 
     }
     else{
-        echo "sale ERROR!";
+        header("location:../state/reject.php");
     }
 }
 else{

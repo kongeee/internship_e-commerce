@@ -29,7 +29,7 @@ include_once("../computer/computerManager.php");
     <center>
     <form action="" method="POST" enctype="multipart/form-data" >
         <input required name="files[]" id="upfile" multiple="multiple" type="file" value="upload" /> <br>
-        <input type="submit" value="Add">
+        <input class="form_button" type="submit" value="Add">
 
     </form>
     </center>
@@ -49,11 +49,11 @@ include_once("../computer/computerManager.php");
                 $fileDestination = substr($fileDestination, 2);
                 $sql = "INSERT INTO image (computer_id, path) VALUES ('$computer_id', '$fileDestination')";
                 if($DBconn->query($sql) === TRUE && $result){
-                    echo "Added";
+                    header("location:../state/confirm.php");
 
                 }
                 else{
-                    echo "file upload ERROR!";
+                    header("location:../state/reject.php");
                 }
                 
             }

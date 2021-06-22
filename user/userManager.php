@@ -18,10 +18,10 @@ class UserManager implements UserService{
             VALUES('$email', '$first_name', '$last_name', '$password')";
 
             if($DBconn->query($sql) === TRUE){
-                echo "Registiration is complete";
+                header("location:../state/confirm.php");
             }
             else{
-                echo "E mail is already used";
+                header("location:../state/reject.php");
             }
 
         }
@@ -36,13 +36,13 @@ class UserManager implements UserService{
 
         if($user->getEmail() == $email || $this->emailControl($email)){
             if($DBconn->query($sql) === TRUE){
-                return "Edit successful";
+                header("location:../state/confirm.php");
             }
         }
         
 
         
-        return "Edit Error!!!";
+        header("location:../state/reject.php");
 
     }
     
@@ -55,10 +55,10 @@ class UserManager implements UserService{
         $sql = "UPDATE user SET password='$newPassword' WHERE user_id='$user_id'";
         if($DBconn->query($sql) === TRUE){
            
-            return "password has been changed";
+            header("location:../state/confirm.php");
         }
 
-        return "Password reset ERROR!!";
+        header("location:../state/reject.php");
         
     }
     
@@ -68,9 +68,9 @@ class UserManager implements UserService{
         $sql = "DELETE FROM user WHERE user_id='$user_id'";
         if($DBconn->query($sql) === TRUE){
             setcookie("user", $user_id, time()-3600, "/", $serverName);
-            return "Delete Successfully";
+            header("location:../state/confirm.php");
         }
-        return "Delete Error";
+        header("location:../state/reject.php");
     }
     
     
